@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>纵横四海跨境推广 · 全平台开户代投与按粉结算</title>
+  <meta name="description" content="覆盖 Facebook、Google、TikTok、X、YouTube 等主流渠道，提供开户代投、素材与落地页优化、按粉/转化结算与数据报表。">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #93c5fd;
+      --secondary: #f59e0b;
+      --secondary-light: #fde68a;
+      --dark: #1e293b;
+      --darker: #0f172a;
+      --light: #f8fafc;
+      --lighter: #ffffff;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --success: #10b981;
+      --error: #ef4444;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, "PingFang SC", "Microsoft Yahei", Arial, sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      background: var(--dark);
+      color: white;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      z-index: 1000;
+      font-weight: 600;
+    }
+
+    .skip:focus {
+      left: 10px;
+      top: 10px;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .header__in {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .brand__logo {
+      width: 70px;
+      height: 48px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .brand__text strong {
+      display: block;
+      line-height: 1;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .brand__text span {
+      display: block;
+      color: var(--gray);
+      font-size: 0.82rem;
+    }
+
+    .nav__list {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav__list a {
+      font-weight: 600;
+      padding: 8px 0;
+      position: relative;
+      color: var(--dark);
+    }
+
+    .nav__list a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--primary);
+      transition: var(--transition);
+      border-radius: 3px;
+    }
+
+    .nav__list a:hover:after,
+    .nav__list a:focus:after {
+      width: 100%;
+    }
+
+    .header__actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4), 0 8px 10px -6px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn--outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn--outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border: 2px solid var(--gray-light);
+      color: var(--dark);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      width: 38px;
+      height: 32px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    .nav-toggle span:nth-child(1) {
+      top: 8px;
+    }
+
+    .nav-toggle span:nth-child(2) {
+      top: 15px;
+    }
+
+    .nav-toggle span:nth-child(3) {
+      top: 22px;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 15px;
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 15px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+      color: white;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+
+    .hero__in {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .hero__title {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin: 0 0 24px;
+      font-weight: 800;
+      background: linear-gradient(to right, #fff, var(--primary-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero__lead {
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 32px;
+      font-size: 1.2rem;
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero__points {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero__points li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero__points li i {
+      color: var(--secondary);
+    }
+
+    .device {
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: translateY(-6px) rotate(3deg);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .device:hover {
+      transform: translateY(-10px) rotate(0deg);
+      box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--alt {
+      background: linear-gradient(180deg, var(--lighter) 0%, var(--light) 100%);
+    }
+
+    .title {
+      font-size: 2.5rem;
+      color: var(--dark);
+      margin: 0 0 16px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .title--center {
+      text-align: center;
+    }
+
+    .desc {
+      color: var(--gray);
+      margin: 0 0 32px;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    .desc--center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .t-center {
+      text-align: center;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 1.2em;
+      line-height: 1.8;
+    }
+
+    .list li {
+      margin: 12px 0;
+      position: relative;
+    }
+
+    .list li:before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+      position: absolute;
+      left: -1.2em;
+    }
+
+    /* About card */
+    .about__card {
+      background: var(--lighter);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-light);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, var(--primary-light), var(--lighter));
+      border: 1px solid var(--gray-light);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .badge i {
+      font-size: 14px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      gap: 30px;
+    }
+
+    .grid--2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid--4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Cards */
+    .cards .card {
+      background: var(--lighter);
+      padding: 32px 24px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cards .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary-light);
+    }
+
+    .card__icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary-light), var(--lighter));
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--dark);
+    }
+
+    .card p {
+      color: var(--gray);
+      margin: 0;
+    }
+
+    /* Services */
+    .service-cards .svc {
+      background: var(--lighter);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .service-cards .svc:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary-light);
+    }
+
+    .svc__media {
+      aspect-ratio: 16/9;
+      background: var(--gray-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .svc:hover .svc__media img {
+      transform: scale(1.05);
+    }
+
+    .svc__content {
+      padding: 24px;
+    }
+
+    .svc h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .svc p {
+      color: var(--gray);
+      margin: 0;
+    }
+
+    /* Stats */
+    .stats {
+      align-items: stretch;
+    }
+
+    .stat {
+      background: var(--lighter);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid var(--gray-light);
+      transition: var(--transition);
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary-light);
+    }
+
+    .stat__num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat__lab {
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    /* Promise band */
+    .promise {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+
+    .promise__in {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 0;
+    }
+
+    .promise h3 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .promise p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+    }
+
+    .promise .btns {
+      display: flex;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    /* FAQ */
+    .faq details {
+      background: var(--lighter);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 16px;
+      border: 1px solid var(--gray-light);
+      transition: var(--transition);
+    }
+
+    .faq details:hover {
+      border-color: var(--primary-light);
+    }
+
+    .faq details[open] {
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq summary:after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .faq details[open] summary:after {
+      content: '-';
+      color: var(--error);
+    }
+
+    .faq__body {
+      color: var(--gray);
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    /* Contact */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact__card {
+      background: var(--lighter);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--gray-light);
+    }
+
+    .contact__card h3 {
+      margin-bottom: 24px;
+      color: var(--dark);
+      font-size: 1.5rem;
+    }
+
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--lighter));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .form {
+      background: var(--lighter);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--gray-light);
+    }
+
+    .form__group {
+      margin-bottom: 24px;
+    }
+
+    .form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .form input, .form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-light);
+      outline: none;
+      transition: var(--transition);
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    .form input:focus, .form textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .form__actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .form__status {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+
+    .form__status.success {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .form__status.error {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(135deg, var(--darker), var(--dark));
+      color: var(--gray-light);
+      padding: 60px 0 30px;
+    }
+
+    .footer__in {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer__links a {
+      color: var(--gray-light);
+    }
+
+    .footer__links a:hover {
+      color: white;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 99;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .hero__title {
+        font-size: 3rem;
+      }
+      
+      .grid--4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav__list {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .nav__list li {
+        width: 100%;
+      }
+      
+      .nav__list a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--gray-light);
+      }
+      
+      .nav__list a:after {
+        display: none;
+      }
+      
+      .nav.open .nav__list {
+        display: flex;
+      }
+      
+      .nav-toggle {
+        display: block;
+      }
+      
+      .hero__in {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+      }
+      
+      .hero__cta {
+        justify-content: center;
+      }
+      
+      .hero__points {
+        justify-content: center;
+      }
+      
+      .contact {
+        grid-template-columns: 1fr;
+      }
+      
+      .promise__in {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      
+      .promise p {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero__title {
+        font-size: 2.5rem;
+      }
+      
+      .grid--2, .grid--3 {
+        grid-template-columns: 1fr;
+      }
+      
+      .grid--4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero__cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .promise .btns {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .footer__in {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer__links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__title {
+        font-size: 2rem;
+      }
+      
+      .title {
+        font-size: 2rem;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .hero {
+        min-height: auto;
+        padding: 80px 0;
+      }
+      
+      .form__actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__in">
+      <div class="brand">
+        <img class="brand__logo" src="images/logo.png" alt="Logo">
+        <div class="brand__text">
+          <strong>跨境推广</strong>
+          <span>全平台代投 · 打粉</span>
+        </div>
+      </div>
+
+      <nav id="nav" class="nav" aria-label="主导航">
+        <ul class="nav__list">
+          <li><a href="#about">关于</a></li>
+          <li><a href="#highlights">优势</a></li>
+          <li><a href="#services">服务</a></li>
+          <li><a href="#stats">数据</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">联系</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="https://t.me/yourtelegram" target="_blank" rel="noopener">
+          <i class="fab fa-telegram"></i> TG 联系
+        </a>
+        <button id="navToggle" class="nav-toggle" aria-label="菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="横幅">
+    <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1315&q=80')"></div>
+    <div class="container hero__in">
+      <div class="hero__left fade-in">
+        <h1 class="hero__title">全球出海推广</h1>
+        <h1 class="hero__title">广告开户代投打粉服务</h1>
+        <p class="hero__lead">覆盖 Facebook、Google、TikTok、X、YouTube、Kwai 等主流平台。提供开户代投、素材制作、落地页优化与按粉/转化结算。</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#contact">
+            <i class="fas fa-paper-plane"></i> 立即咨询
+          </a>
+          <a class="btn btn--outline" href="#services">
+            <i class="fas fa-search"></i> 查看服务
+          </a>
+        </div>
+        <ul class="hero__points">
+          <li><i class="fas fa-check-circle"></i> 多账户并行 · 快速上线</li>
+          <li><i class="fas fa-check-circle"></i> 实时数据 · 日报周报</li>
+          <li><i class="fas fa-check-circle"></i> 灵活结算 · 代投/按粉/按转化</li>
+        </ul>
+      </div>
+      <div class="hero__right fade-in delay-1">
+        <img src="images/hero-device.png" alt="示意设备图" class="device">
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- About -->
+    <section id="about" class="section section--alt">
+      <div class="container grid grid--2">
+        <div class="fade-in">
+          <h2 class="title">关于我们 · 专注复杂行业投放</h2>
+          <p class="desc">我们为游戏、投资、交友、虚拟服务等行业提供合规、稳定与高转化的投放方案。针对开户、素材审核、平台风控、数据追踪等痛点，打造一整套专属投放体系。</p>
+          <ul class="list">
+            <li>支持谷歌、脸书、TikTok、X、YouTube、Kwai 等主流平台投放</li>
+            <li>精准引流 + 转化优化，适配多行业目标</li>
+            <li>从开户到持续优化的一站式服务</li>
+          </ul>
+          <div class="inline-cta" style="margin-top: 30px;">
+            <a class="btn btn--primary" href="https://t.me/yourtelegram" target="_blank" rel="noopener">
+              <i class="fab fa-telegram"></i> TG 联系我们
+            </a>
+          </div>
+        </div>
+        <div class="about__card fade-in delay-1">
+          <h3>能力概览</h3>
+          <div class="badges">
+            <span class="badge"><i class="fas fa-folder-plus"></i> 开户代投</span>
+            <span class="badge"><i class="fas fa-paint-brush"></i> 素材优化</span>
+            <span class="badge"><i class="fas fa-columns"></i> 落地页 A/B</span>
+            <span class="badge"><i class="fas fa-layer-group"></i> 多平台矩阵</span>
+            <span class="badge"><i class="fas fa-chart-line"></i> 数据报表</span>
+          </div>
+          <p style="margin-top: 20px; color: var(--gray); font-size: 14px;">合规提示：所有投放需遵守目标平台与投放地区相关政策与法律法规。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section id="highlights" class="section">
+      <div class="container">
+        <h2 class="title t-center">为什么选择我们？</h2>
+        <p class="desc t-center desc--center">凭借多年经验与数据驱动方法，为高敏行业提供可持续的增长方案。</p>
+
+        <div class="grid grid--4 cards">
+          <article class="card fade-in">
+            <div class="card__icon"><i class="fas fa-brain"></i></div>
+            <h3>团队实力</h3>
+            <p>海外投放专家，更懂渠道规则与用户心智。</p>
+          </article>
+          <article class="card fade-in delay-1">
+            <div class="card__icon"><i class="fas fa-satellite"></i></div>
+            <h3>全平台资源</h3>
+            <p>多平台推广资源与开户能力，一站式交付。</p>
+          </article>
+          <article class="card fade-in delay-2">
+            <div class="card__icon"><i class="fas fa-puzzle-piece"></i></div>
+            <h3>服务优势</h3>
+            <p>精细化流程与SOP，持续打造品牌与咨询。</p>
+          </article>
+          <article class="card fade-in delay-3">
+            <div class="card__icon"><i class="fas fa-chart-pie"></i></div>
+            <h3>专业运营</h3>
+            <p>多行业实战案例，实时洞察与快速复盘。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <h2 class="title t-center">我们的服务</h2>
+        <p class="desc t-center desc--center">从开户到优化的全链路服务，匹配你的业务目标。</p>
+
+        <div class="grid grid--4 service-cards">
+          <article class="svc fade-in">
+            <div class="svc__media"><img src="https://placehold.co/600x400/2563eb/ffffff?text=Google+Ads" alt="Google Ads"></div>
+            <div class="svc__content">
+              <h3>Google 全面营销</h3>
+              <p>SEM + GDN + SEO 组合，建立长期与短期引流两套引擎。</p>
+            </div>
+          </article>
+          <article class="svc fade-in delay-1">
+            <div class="svc__media"><img src="https://placehold.co/600x400/1877F2/ffffff?text=Facebook+Ads" alt="Facebook Ads"></div>
+            <div class="svc__content">
+              <h3>Facebook / Instagram</h3>
+              <p>像素追踪 + 兴趣定向，开户代投、素材优化与矩阵操作。</p>
+            </div>
+          </article>
+          <article class="svc fade-in delay-2">
+            <div class="svc__media"><img src="https://placehold.co/600x400/000000/ffffff?text=TikTok+Ads" alt="TikTok Ads"></div>
+            <div class="svc__content">
+              <h3>TikTok 广告</h3>
+              <p>短视频红利，开户到代投的全链路服务，快速占领年轻市场。</p>
+            </div>
+          </article>
+          <article class="svc fade-in delay-3">
+            <div class="svc__media"><img src="https://placehold.co/600x400/000000/ffffff?text=X+Ads" alt="X Ads"></div>
+            <div class="svc__content">
+              <h3>X（前 Twitter）</h3>
+              <p>蓝V认证与广告投放，适配金融、资讯、话题声量等方向。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats" class="section">
+      <div class="container grid grid--4 stats">
+        <div class="stat fade-in">
+          <div class="stat__num" data-count="140">0</div>
+          <div class="stat__lab">转化率提升（%）</div>
+        </div>
+        <div class="stat fade-in delay-1">
+          <div class="stat__num" data-count="87000">0</div>
+          <div class="stat__lab">累计服务客户</div>
+        </div>
+        <div class="stat fade-in delay-2">
+          <div class="stat__num" data-count="140">0</div>
+          <div class="stat__lab">获客效率提升（%）</div>
+        </div>
+        <div class="stat fade-in delay-3">
+          <div class="stat__num" data-count="10">0</div>
+          <div class="stat__lab">行业经验（年）</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promise -->
+    <section class="promise">
+      <div class="container promise__in">
+        <div>
+          <h3>保障与承诺</h3>
+          <p>封户停户，免费换户；封户余额可转移或退款。用户至上 · 及时反馈 · 有效交付。</p>
+        </div>
+        <div class="btns">
+          <a class="btn btn--primary" href="https://t.me/yourtelegram" target="_blank" rel="noopener">
+            <i class="fas fa-user-plus"></i> 立即开户
+          </a>
+          <a class="btn btn--ghost" href="#contact">
+            <i class="fas fa-envelope"></i> 联系我们
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section--alt">
+      <div class="container">
+        <h2 class="title t-center">常见问题</h2>
+        <div class="faq">
+          <details class="fade-in">
+            <summary>开户多久能开？能否代投？</summary>
+            <div class="faq__body">通常半小时内可开通；支持代投，从流程制定、账户开通、投放管理到效果评估与持续优化。</div>
+          </details>
+          <details class="fade-in delay-1">
+            <summary>支持哪些充值方式？</summary>
+            <div class="faq__body">支持法币与主流加密货币（如 USDT、ETH、BTC 等），以合同与当地法规为准。</div>
+          </details>
+          <details class="fade-in delay-2">
+            <summary>代投多久可以上线推广？</summary>
+            <div class="faq__body">物料制作与上传约 1–3 小时；平台审核通过后即可上线。</div>
+          </details>
+          <details class="fade-in delay-3">
+            <summary>退款与余额处理？</summary>
+            <div class="faq__body">工作日可处理退款；如广告户风控，余额可迁移至其他账户或办理退款。</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container contact">
+        <div class="contact__card fade-in">
+          <h3>联系我们</h3>
+          <div class="contact__info">
+            <div class="contact__item">
+              <div class="contact__icon">
+                <i class="fab fa-telegram"></i>
+              </div>
+              <div>
+                <p><strong>Telegram</strong></p>
+                <p><a href="https://t.me/yourtelegram" target="_blank" rel="noopener">t.me/yourtelegram</a></p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div>
+                <p><strong>WhatsApp</strong></p>
+                <p><a href="https://wa.me/1234567890" target="_blank" rel="noopener">+1 234 567 890</a></p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <p><strong>Email</strong></p>
+                <p><a href="mailto:info@domain.com">info@domain.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="form fade-in delay-1" novalidate>
+          <h3 style="margin-bottom: 24px;">发送咨询</h3>
+          <div class="form__group">
+            <label for="f-name">公司 / 姓名</label>
+            <input id="f-name" required placeholder="张三 / 公司名">
+          </div>
+          <div class="form__group">
+            <label for="f-contact">联系方式（TG/WA/邮箱）</label>
+            <input id="f-contact" required placeholder="Telegram / WhatsApp / Email">
+          </div>
+          <div class="form__group">
+            <label for="f-msg">需求与预算</label>
+            <textarea id="f-msg" rows="4" required placeholder="目标国家、投放平台、预算、KPI"></textarea>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">
+              <i class="fas fa-paper-plane"></i> 提交需求
+            </button>
+            <button class="btn btn--ghost" type="reset">
+              <i class="fas fa-redo"></i> 重置
+            </button>
+          </div>
+          <p id="formStatus" class="form__status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__in">
+      <div>© <span id="year"></span> 纵横四海跨境推广</div>
+      <div class="footer__links">
+        <a href="#privacy">隐私政策</a>
+        <a href="#terms">服务条款</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // 轻量交互：移动导航、锚点平滑、表单校验、统计数值动画、年份
+    (function(){
+      "use strict";
+      var $ = (s, r)=> (r||document).querySelector(s);
+      var $$ = (s, r)=> Array.from((r||document).querySelectorAll(s));
+
+      // mobile nav
+      var nav = $("#nav");
+      var navToggle = $("#navToggle");
+      navToggle && navToggle.addEventListener("click", function(){
+        nav.classList.toggle("open");
+        navToggle.classList.toggle("open");
+      });
+
+      // smooth anchor
+      document.addEventListener("click", function(e){
+        var a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        var href = a.getAttribute("href");
+        if(href === "#" || href === "#!") return;
+        var target = $(href);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:"smooth", block:"start"});
+          nav && nav.classList.remove("open");
+          navToggle.classList.remove("open");
+        }
+      });
+
+      // contact form
+      var form = $("#contactForm");
+      var status = $("#formStatus");
+      form && form.addEventListener("submit", function(e){
+        e.preventDefault();
+        var name = $("#f-name").value.trim();
+        var contact = $("#f-contact").value.trim();
+        var msg = $("#f-msg").value.trim();
+        if(!name || !contact || !msg){
+          status.className = "form__status error";
+          status.textContent = "请完整填写表单。";
+          return;
+        }
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
+        
+        // Simulate form submission
+        setTimeout(function(){
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> 提交需求';
+          form.reset();
+          status.className = "form__status success";
+          status.textContent = "已收到需求，我们将尽快联系你。";
+        }, 1500);
+      });
+
+      // stats counter
+      function inViewport(el){
+        var r = el.getBoundingClientRect();
+        return r.top < window.innerHeight - 60 && r.bottom > 0;
+      }
+      
+      var counters = $$(".stat__num");
+      var fired = false;
+      
+      function runCounters(){
+        if(fired) return;
+        if(!counters.length) return;
+        if(!inViewport(counters[0])) return;
+        
+        fired = true;
+        counters.forEach(function(el){
+          var end = parseInt(el.getAttribute("data-count"), 10) || 0;
+          var start = 0, dur = 1500, t0 = null;
+          
+          function step(ts){
+            if(!t0) t0 = ts;
+            var p = Math.min(1, (ts - t0) / dur);
+            var val = Math.floor(start + (end - start) * (0.5 - Math.cos(Math.PI*p)/2));
+            el.textContent = val.toLocaleString();
+            if(p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }
+      
+      window.addEventListener("scroll", runCounters, {passive:true});
+      window.addEventListener("load", runCounters);
+
+      // back to top button
+      var backToTop = $("#backToTop");
+      window.addEventListener("scroll", function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+      
+      backToTop.addEventListener("click", function() {
+        window.scrollTo({top: 0, behavior: "smooth"});
+      });
+
+      // year
+      var y = $("#year"); if(y) y.textContent = new Date().getFullYear();
+
+      // close nav on ESC
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape" && nav && nav.classList.contains("open")) {
+          nav.classList.remove("open");
+          navToggle.classList.remove("open");
+        }
+      });
+      
+      // Animation on scroll
+      function checkScroll() {
+        var elements = $$('.fade-in');
+        elements.forEach(function(element) {
+          if (inViewport(element)) {
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', checkScroll);
+      window.addEventListener('load', checkScroll);
+    })();
+  </script>
+</body>
+</html>
