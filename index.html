@@ -13,13 +13,40 @@
   <meta property="og:image" content="https://yourdomain.com/og-cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts & icons (保留，项目上线可根据需要替换为本地/子集化) -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17525667948"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17525667948');
+  </script>
+
+  <!-- Event snippet for 联系人 conversion page -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.open(url, '_blank');
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17525667948/PKvlCPGCx5IbEOzw8aRB',
+        'value': 1.0,
+        'currency': 'USD',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+
+  <!-- Fonts & icons -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous">
 
   <style>
-    /* 原有样式主体（保留你原始样式，下面添加了少量增强样式） */
+    /* 原有样式主体 */
     :root {
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
@@ -126,7 +153,7 @@
     .badges { display:flex; flex-wrap:wrap; gap:12px; margin:20px 0; }
     .badge { background: linear-gradient(135deg, var(--primary-light), var(--lighter)); border:1px solid var(--gray-light); padding:8px 16px; border-radius:50px; font-weight:600; color:var(--primary-dark); display:flex; align-items:center; gap:6px; font-size:14px; }
 
-    /* Grid & Cards (保留原样式) */
+    /* Grid & Cards */
     .grid { display:grid; gap:30px; }
     .grid--2 { grid-template-columns: 1fr 1fr; }
     .grid--3 { grid-template-columns: repeat(3, 1fr); }
@@ -276,7 +303,7 @@
       </nav>
 
       <div class="header__actions">
-        <a class="btn btn--ghost" href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn--ghost" href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer" onclick="return handleCtaClick(this.href, event)">
           <i class="fab fa-telegram" aria-hidden="true"></i> TG 联系
         </a>
         <button id="navToggle" class="nav-toggle" aria-label="切换主导航" aria-controls="primary-menu" aria-expanded="false">
@@ -291,12 +318,11 @@
     <div class="hero__bg" role="img" aria-label="全球市场与广告示意背景" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1315&q=80')"></div>
     <div class="container hero__in">
       <div class="hero__left fade-in">
-        <!-- 仅保留一个 H1（SEO与可访问性） -->
         <h1 class="hero__title">全球出海推广 · 合规投放与账户协助</h1>
         <h2 class="hero__sub">覆盖 Google、Facebook、TikTok、X、YouTube 等主流平台，提供账户开通协助、素材与落地页优化、线索转化与数据报表。</h2>
         <p class="hero__lead">我们专注在合规前提下，帮助品牌与广告主搭建稳定、可复用的投放流程与数据闭环，强调透明与可验证的结算方式（按线索/转化）。</p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="https://t.me/TY22222222">
+          <a class="btn btn--primary" href="https://t.me/TY22222222" onclick="return handleCtaClick(this.href, event)">
             <i class="fas fa-paper-plane" aria-hidden="true"></i> 立即咨询
           </a>
           <a class="btn btn--outline" href="#services">
@@ -328,7 +354,7 @@
             <li>从账户协助到素材制作与落地页优化的一站式服务（按合同与合规约定执行）</li>
           </ul>
           <div class="inline-cta" style="margin-top: 30px;">
-            <a class="btn btn--primary" href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn--primary" href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer" onclick="return handleCtaClick(this.href, event)">
               <i class="fab fa-telegram" aria-hidden="true"></i> TG 联系我们
             </a>
           </div>
@@ -455,10 +481,10 @@
           <p>我们以合规为前提提供服务，遇到账户风控或异常时提供排查与申诉支持；如涉及余额或退款事宜，将按照合同与法律法规处理，确保用户权益与透明度。</p>
         </div>
         <div class="btns">
-          <a class="btn btn--primary" href="#contact">
+          <a class="btn btn--primary" href="#contact" onclick="return handleCtaClick(getRandomTelegramLink(), event)">
             <i class="fas fa-user-plus" aria-hidden="true"></i> 获取合规投放方案
           </a>
-          <a class="btn btn--ghost" href="#contact">
+          <a class="btn btn--ghost" href="#contact" onclick="return handleCtaClick(getRandomTelegramLink(), event)">
             <i class="fas fa-envelope" aria-hidden="true"></i> 联系我们
           </a>
         </div>
@@ -500,14 +526,14 @@
               <div class="contact__icon" aria-hidden="true"><i class="fab fa-telegram"></i></div>
               <div>
                 <p><strong>Telegram(广告合作)</strong></p>
-                <p><a href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer">t.me/TY22222222</a></p>
+                <p><a href="https://t.me/TY22222222" target="_blank" rel="noopener noreferrer" onclick="return handleCtaClick(this.href, event)">t.me/TY22222222</a></p>
               </div>
             </div>
             <div class="contact__item">
               <div class="contact__icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></div>
               <div>
                 <p><strong>Telegram(技术支持)</strong></p>
-                <p><a href="https://t.me/Giggo521" target="_blank" rel="noopener noreferrer">t.me/Giggo521</a></p>
+                <p><a href="https://t.me/Giggo521" target="_blank" rel="noopener noreferrer" onclick="return handleCtaClick(this.href, event)">t.me/Giggo521</a></p>
               </div>
             </div>
             <div class="contact__item">
@@ -640,6 +666,36 @@
   </script>
 
   <script>
+    // Telegram会话链接数组
+    const telegramLinks = [
+      "https://t.me/TY22222222",
+      "https://t.me/Giggo521",
+      "https://t.me/AnotherContact",
+      "https://t.me/SupportChannel"
+    ];
+
+    // 获取随机Telegram链接
+    function getRandomTelegramLink() {
+      const randomIndex = Math.floor(Math.random() * telegramLinks.length);
+      return telegramLinks[randomIndex];
+    }
+
+    // CTA按钮点击处理
+    function handleCtaClick(url, event) {
+      // 阻止默认行为
+      if (event) event.preventDefault();
+      
+      // 上报Google事件
+      gtag_report_conversion(url);
+      
+      // 异步打开Telegram链接
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 100);
+      
+      return false;
+    }
+
     // 轻量交互（增强版）：移动导航、锚点平滑、表单校验与提交（fetch -> fallback），统计数值动画（支持 prefers-reduced-motion）、年份、无障碍增强
     (function(){
       "use strict";
@@ -883,5 +939,3 @@
   </script>
 </body>
 </html>
-
-
