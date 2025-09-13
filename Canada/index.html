@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>High-Paying Remote Jobs in Canada | Earn Up To $300/Day</title>
-  <meta name="description" content="Exclusive work-from-home opportunities available now. Join thousands of Canadians earning daily income with flexible remote jobs. Immediate openings - apply today!" />
+  <title>Exclusive Canadian Remote Jobs | Earn $250-$500/Day From Home</title>
+  <meta name="description" content="Canadian-only work-from-home opportunities. Join thousands of Canadians earning daily income with flexible remote jobs. Must be Canadian citizen/permanent resident." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
@@ -296,7 +296,7 @@
   <!-- Top Nav -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Home">CAD Remote</a>
+      <a class="brand" href="#top" aria-label="Home">CanadaRemote</a>
       <nav class="nav-links">
         <a href="#roles" class="nav-link">High-Paying Roles</a>
         <a href="#benefits" class="nav-link">Why Choose Us</a>
@@ -310,10 +310,10 @@
   <section id="top" class="hero">
     <div class="container hero-grid">
       <div class="hero-copy fade-in">
-        <h1>Earn $250-$500/Day From Your Couch - Canadian Remote Jobs Available NOW</h1>
+        <h1>Earn $250-$500/Day From Home - Exclusive Canadian Opportunities</h1>
         <p class="subtitle">
-          Exclusive work-from-home opportunities: Join 23,000+ Canadians making real money daily with simple tasks. 
-		  <br>No experience needed - start earning within 24 hours!
+          🇨🇦 Canadian-only work program: Join 23,000+ Canadians making real money daily with simple remote tasks. 
+		  <br>No experience needed - start earning within hours!
         </p>
 
         <!-- credibility logos -->
@@ -330,13 +330,13 @@
           <li>🚫 <strong>Zero fees</strong> - never pay to apply or work</li>
           <li>📱 <strong>Simple tasks</strong> - use just your smartphone</li>
           <li>⚡ <strong>Immediate start</strong> - begin earning today</li>
-		  <li>💼 <strong>Flexible income</strong> - EI and government benefit friendly</li>
+		  <li>🇨🇦 <strong>Canadians only</strong> - exclusive opportunities for citizens/residents</li>
         </ul>
       </div>
 
       <aside id="apply" class="form-card fade-in delay-1" aria-label="Application Form">
         <h2 class="form-title">🚀 Start Earning TODAY</h2>
-        <p class="form-note"><strong>Limited positions available!</strong> Apply now and our team will contact you on WhatsApp within 30 minutes to get you started.</p>
+        <p class="form-note"><strong>Canadian residents only!</strong> Apply now and our team will contact you on WhatsApp within 30 minutes to get you started.</p>
         
         <div class="progress-bar">
           <div class="progress-step active"></div>
@@ -363,7 +363,16 @@
 
           <div class="field">
             <label for="age">Your Age<span class="req">*</span></label>
-            <input id="age" name="age" type="text" placeholder="Must be 20+" required />
+            <input id="age" name="age" type="text" placeholder="Must be 18+" required />
+          </div>
+
+          <div class="field">
+            <label for="citizenship">Are you a Canadian citizen/permanent resident?<span class="req">*</span></label>
+            <select id="citizenship" name="citizenship" required>
+              <option value="">Please select</option>
+              <option value="yes">Yes, I'm Canadian citizen/permanent resident</option>
+              <option value="no">No, I'm a foreigner</option>
+            </select>
           </div>
 
           <div class="field check">
@@ -371,7 +380,7 @@
             <label for="consent">I agree to receive job offers via WhatsApp & accept the <a href="#privacy">Privacy Policy</a></label>
           </div>
 
-          <button type="submit" class="btn btn-orange btn-block pulse">🔥 YES! I Want To Earn $300/Day</button>
+          <button type="submit" class="btn btn-orange btn-block pulse">🇨🇦 YES! I Want To Earn $300/Day</button>
           
           <div class="security-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -399,11 +408,21 @@
     </div>
   </div>
 
+  <!-- Non-Canadian Modal -->
+  <div class="modal" id="nonCanadianModal">
+    <div class="modal-content" aria-labelledby="nonCanadianTitle" role="dialog" aria-modal="true">
+      <button class="modal-close" id="nonCanadianCloseBtn" aria-label="Close">&times;</button>
+      <h3 class="modal-title" id="nonCanadianTitle">We're Sorry</h3>
+      <p class="modal-message">Our services are currently only available to Canadian citizens and permanent residents. Thank you for your interest.</p>
+      <button class="modal-btn" id="nonCanadianOkBtn">Understand</button>
+    </div>
+  </div>
+
   <!-- Form Modal -->
   <div class="modal" id="formModal">
     <div class="modal-content" style="max-width: 500px;" aria-labelledby="modalFormTitle" role="dialog" aria-modal="true">
       <button class="modal-close" id="formModalCloseBtn" aria-label="Close">&times;</button>
-      <h2 class="form-title" id="modalFormTitle">🚀 Apply Now - Limited Positions Available</h2>
+      <h2 class="form-title" id="modalFormTitle">🚀 Apply Now - Canadian Residents Only</h2>
       <p class="form-note"><strong>Only 12 spots left today!</strong> Complete this form and our team will contact you on WhatsApp within 30 minutes.</p>
       
       <div class="progress-bar">
@@ -434,12 +453,21 @@
           <input id="modal-age" name="age" type="text" placeholder="Must be 18+" required />
         </div>
 
+        <div class="field">
+          <label for="modal-citizenship">Are you a Canadian citizen/permanent resident?<span class="req">*</span></label>
+          <select id="modal-citizenship" name="citizenship" required>
+            <option value="">Please select</option>
+            <option value="yes">Yes, I'm Canadian citizen/permanent resident</option>
+            <option value="no">No, I'm a foreigner</option>
+          </select>
+        </div>
+
         <div class="field check">
           <input id="modal-consent" name="consent" type="checkbox" required style="width: auto; margin-top: 4px;" checked />
           <label for="modal-consent">I agree to receive job offers via WhatsApp & accept the <a href="#privacy">Privacy Policy</a></label>
         </div>
 
-        <button type="submit" class="btn btn-orange btn-block pulse">🔥 YES! I Want To Earn $300/Day</button>
+        <button type="submit" class="btn btn-orange btn-block pulse">🇨🇦 YES! I Want To Earn $300/Day</button>
         
         <div class="security-badge">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -558,10 +586,10 @@
           </div>
         </div>
         <div class="req-item fade-in delay-2">
-          <div class="req-icon">🤝</div>
+          <div class="req-icon">🇨🇦</div>
           <div>
-            <h4>All Canadians Welcome</h4>
-            <p>From Vancouver to Halifax, we hire across Canada</p>
+            <h4>Canadian Resident</h4>
+            <p>Must be citizen or permanent resident</p>
           </div>
         </div>
         <div class="req-item fade-in delay-2">
@@ -628,7 +656,7 @@
     <div class="container cta-inner fade-in">
       <div>
         <h2>⚠️ Limited Positions Available - Apply NOW</h2>
-        <p class="muted">We're currently accepting applications from <strong>37 Canadian regions</strong> but spots fill quickly. Applications close when we reach capacity.</p>
+        <p class="muted">We're currently accepting applications from <strong>Canadian residents only</strong> but spots fill quickly. Applications close when we reach capacity.</p>
       </div>
       <a class="btn btn-orange btn-lg pulse open-form-btn" href="#">👉 Secure My Spot Now</a>
     </div>
@@ -658,6 +686,10 @@
         <summary>When and how do I get paid?</summary>
         <div>Daily payouts! Most workers receive payment within 24 hours of task completion via e-transfer, PayPal, or other preferred methods.</div>
       </details>
+      <details class="faq fade-in">
+        <summary>Is this only for Canadian residents?</summary>
+        <div>Yes, currently our program is exclusively available to Canadian citizens and permanent residents due to program requirements and partnerships.</div>
+      </details>
     </div>
   </section>
 
@@ -674,7 +706,7 @@
       </nav>
     </div>
     <div class="container">
-      <p class="muted small">© 2023 CanadaRemoteJobs. All rights reserved. Earnings vary based on effort and task availability. Not a guaranteed income program.</p>
+      <p class="muted small">© 2023 CanadaRemoteJobs. All rights reserved. Earnings vary based on effort and task availability. Not a guaranteed income program. Services available to Canadian residents only.</p>
     </div>
   </footer>
 
@@ -685,25 +717,23 @@
       const formStatus = document.getElementById('formStatus');
       const modalFormStatus = document.getElementById('modalFormStatus');
       const successModal = document.getElementById('successModal');
+      const nonCanadianModal = document.getElementById('nonCanadianModal');
       const formModal = document.getElementById('formModal');
       const modalOkBtn = document.getElementById('modalOkBtn');
       const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const nonCanadianCloseBtn = document.getElementById('nonCanadianCloseBtn');
+      const nonCanadianOkBtn = document.getElementById('nonCanadianOkBtn');
       const formModalCloseBtn = document.getElementById('formModalCloseBtn');
       const openFormBtn = document.getElementById('openFormBtn');
       const openFormBtns = document.querySelectorAll('.open-form-btn');
       
       // WhatsApp 账号数组（纯号码）
       const whatsappAccounts = [
-        "447960984016",
-        "447960555190",
-        "447960546078",
-        "447960191532",
-        "447958596057",
-        "447958520678",
-        "447947660841",
-        "447949389351",
-        "447947678990",
-        "447949389847"
+        "15875693345",
+        "15875693244",
+        "15875692929",
+        "15875533527",
+        "15875533458"
       ];
       
       // 生成WhatsApp链接的函数
@@ -736,12 +766,22 @@
         successModal.classList.remove('active');
       }
       
+      // 打开非加拿大居民模态窗口
+      function openNonCanadianModal() {
+        nonCanadianModal.classList.add('active');
+      }
+      
+      // 关闭非加拿大居民模态窗口
+      function closeNonCanadianModal() {
+        nonCanadianModal.classList.remove('active');
+      }
+      
       // 表单验证和提交处理
       function handleFormSubmit(e, formElement, statusElement) {
         e.preventDefault();
         
         // 清除之前的错误状态
-        const inputs = formElement.querySelectorAll('input');
+        const inputs = formElement.querySelectorAll('input, select');
         inputs.forEach(input => {
           input.style.borderColor = '';
         });
@@ -769,6 +809,13 @@
           ageInput.style.borderColor = '#ff8b8b';
         }
         
+        // 验证国籍
+        const citizenshipSelect = formElement.querySelector('select[name="citizenship"]');
+        if (!citizenshipSelect.value) {
+          isValid = false;
+          citizenshipSelect.style.borderColor = '#ff8b8b';
+        }
+        
         // 验证同意条款
         const consentInput = formElement.querySelector('input[name="consent"]');
         if (!consentInput.checked) {
@@ -784,12 +831,18 @@
           return;
         }
         
-        // 表单验证通过，显示成功消息
-        openSuccessModal();
-        
-        // 如果是模态表单，关闭它
-        if (formElement === modalForm) {
-          closeFormModal();
+        // 检查国籍
+        if (citizenshipSelect.value === 'yes') {
+          // 加拿大居民 - 上报GA并跳转
+          openSuccessModal();
+          
+          // 如果是模态表单，关闭它
+          if (formElement === modalForm) {
+            closeFormModal();
+          }
+        } else {
+          // 非加拿大居民 - 显示提示，不上报GA
+          openNonCanadianModal();
         }
       }
       
@@ -816,12 +869,20 @@
       
       // 模态窗口关闭按钮
       modalCloseBtn.addEventListener('click', closeSuccessModal);
+      nonCanadianCloseBtn.addEventListener('click', closeNonCanadianModal);
+      nonCanadianOkBtn.addEventListener('click', closeNonCanadianModal);
       formModalCloseBtn.addEventListener('click', closeFormModal);
       
       // 点击遮罩空白处关闭模态窗口
       successModal.addEventListener('click', function(e) {
         if (e.target === successModal) {
           closeSuccessModal();
+        }
+      });
+      
+      nonCanadianModal.addEventListener('click', function(e) {
+        if (e.target === nonCanadianModal) {
+          closeNonCanadianModal();
         }
       });
       
