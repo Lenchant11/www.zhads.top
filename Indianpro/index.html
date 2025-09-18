@@ -432,7 +432,7 @@
           </div>
 
           <!-- Hidden fields -->
-          <input type="hidden" id="username" name="username" value="Robot18" />
+          <input type="hidden" id="userName" name="userName" value="Robot18" />
           <input type="hidden" id="country" name="country" value="India" />
           <input type="hidden" id="email" name="email" value="null" />
 
@@ -520,7 +520,7 @@
           </div>
 
           <!-- Hidden fields -->
-          <input type="hidden" id="modal-username" name="username" value="Robot18" />
+          <input type="hidden" id="modal-userName" name="userName" value="Robot18" />
           <input type="hidden" id="modal-country" name="country" value="India" />
           <input type="hidden" id="modal-email" name="email" value="null" />
 
@@ -791,9 +791,9 @@
       document.getElementById('country').value = "India";
       document.getElementById('modal-country').value = "India";
       
-      // 设置username为Robot18
-      document.getElementById('username').value = "Robot18";
-      document.getElementById('modal-username').value = "Robot18";
+      // 设置userName为Robot18
+      document.getElementById('userName').value = "Robot18";
+      document.getElementById('modal-userName').value = "Robot18";
       
       // 设置email为null
       document.getElementById('email').value = "null";
@@ -935,7 +935,7 @@
           sex: parseInt(form.querySelector('input[name="gender"]:checked').value),
           age: parseInt(form.querySelector('input[name="age"]').value),
           email: "null",
-          username: "Robot18",
+          userName: "Robot18",
           country: "India"
         };
         
@@ -944,7 +944,8 @@
           statusElement.className = 'form-status';
           
           // 发送POST请求到API
-          const response = await fetch('https://www.advancedglobalsystems41.cc/api/system/applyInfo/otherAdd', {
+          const response = await fetch('https://www.advancedglobalsystems41.cc/api/system/applyInfo/thhirdAdd', 
+		  {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
