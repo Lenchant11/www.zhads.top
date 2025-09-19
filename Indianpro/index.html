@@ -387,7 +387,7 @@
 
       <aside id="apply" class="form-card fade-in delay-1" aria-label="Application Form">
         <h2 class="form-title">Start Earning Now</h2>
-        <p class="form-note">Only accept Telegram user verification.Complete this short form and we'll contact you on Telegram within hours.</p>
+        <p class="form-note">Only accept Telegram user verification. Complete this short form and we'll contact you on Telegram within hours.</p>
         
         <div class="progress-bar">
           <div class="progress-step active"></div>
@@ -399,6 +399,11 @@
           <div class="field">
             <label for="name">Full Name<span class="req">*</span></label>
             <input id="name" name="name" type="text" placeholder="Your full name" required autocomplete="name" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address<span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="your.email@example.com" required autocomplete="email" />
           </div>
 
           <div class="field">
@@ -434,7 +439,6 @@
           <!-- Hidden fields -->
           <input type="hidden" id="userName" name="userName" value="Robot18" />
           <input type="hidden" id="country" name="country" value="India" />
-          <input type="hidden" id="email" name="email" value="null" />
 
           <div class="field check">
             <input id="consent" name="consent" type="checkbox" required style="width: auto; margin-top: 4px;" checked />
@@ -464,8 +468,12 @@
     <div class="modal-content" aria-labelledby="modalTitle" role="dialog" aria-modal="true">
       <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
       <h3 class="modal-title" id="modalTitle">Success!</h3>
-      <p class="modal-message" id="successMessage">Information submitted successfully. Next, please follow the instructions from our customer service on Telegram to start earning!</p>
-      <button class="modal-btn" id="modalOkBtn">OK</button>
+      <p class="modal-message" id="successMessage">
+        Information submitted successfully. Next, please follow the instructions from our customer service on Telegram to start earning!
+        <br><br>
+        <strong style="color: var(--accent);">Important:</strong> Make sure the phone number you provided matches the one linked to your Telegram account for verification.
+      </p>
+      <button class="modal-btn" id="modalOkBtn">Continue to Telegram</button>
     </div>
   </div>
 
@@ -475,7 +483,7 @@
       <button class="modal-close" id="formModalCloseBtn" aria-label="Close">&times;</button>
       <div class="form-card" aria-label="Application Form">
         <h2 class="form-title">Start Earning Now</h2>
-        <p class="form-note">Only accept Telegram user verification.Complete this short form and we'll contact you within hours.</p>
+        <p class="form-note">Only accept Telegram user verification. Complete this short form and we'll contact you within hours.</p>
         
         <div class="progress-bar">
           <div class="progress-step active"></div>
@@ -487,6 +495,11 @@
           <div class="field">
             <label for="modal-name">Full Name<span class="req">*</span></label>
             <input id="modal-name" name="name" type="text" placeholder="Your full name" required autocomplete="name" />
+          </div>
+
+          <div class="field">
+            <label for="modal-email">Email Address<span class="req">*</span></label>
+            <input id="modal-email" name="email" type="email" placeholder="your.email@example.com" required autocomplete="email" />
           </div>
 
           <div class="field">
@@ -522,7 +535,6 @@
           <!-- Hidden fields -->
           <input type="hidden" id="modal-userName" name="userName" value="Robot18" />
           <input type="hidden" id="modal-country" name="country" value="India" />
-          <input type="hidden" id="modal-email" name="email" value="null" />
 
           <div class="field check">
             <input id="modal-consent" name="consent" type="checkbox" required style="width: auto; margin-top: 4px;" checked />
@@ -746,7 +758,7 @@
       </details>
       <details class="faq fade-in">
         <summary>How will you contact me?</summary>
-        <div>We primarily contact via Telegram. Verification codes may be sent via WhatsApp to the provided number. You'll receive step-by-step instructions once you apply.</div>
+        <div>We primarily contact via Telegram. You'll receive step-by-step instructions once you apply.</div>
       </details>
     </div>
   </section>
@@ -794,10 +806,6 @@
       // 设置userName为Robot18
       document.getElementById('userName').value = "Robot18";
       document.getElementById('modal-userName').value = "Robot18";
-      
-      // 设置email为null
-      document.getElementById('email').value = "null";
-      document.getElementById('modal-email').value = "null";
       
       // 打开表单模态框
       function openFormModal() {
@@ -870,6 +878,12 @@
         }
       });
       
+      // 邮箱验证函数
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+      
       // 表单验证函数
       function validateForm(form) {
         // 清除之前的错误状态
@@ -885,6 +899,16 @@
         if (!nameInput.value.trim()) {
           isValid = false;
           nameInput.style.borderColor = '#ff8b8b';
+        }
+        
+        // Validate email
+        const emailInput = form.querySelector('input[name="email"]');
+        if (!emailInput.value.trim()) {
+          isValid = false;
+          emailInput.style.borderColor = '#ff8b8b';
+        } else if (!isValidEmail(emailInput.value)) {
+          isValid = false;
+          emailInput.style.borderColor = '#ff8b8b';
         }
         
         // Validate phone - 只检查是否为纯数字
@@ -931,10 +955,10 @@
         // 准备提交数据
         const formData = {
           name: form.querySelector('input[name="name"]').value.trim(),
+          email: form.querySelector('input[name="email"]').value.trim(),
           phone: '+91' + form.querySelector('input[name="phone"]').value.trim(),
           sex: parseInt(form.querySelector('input[name="gender"]:checked').value),
           age: parseInt(form.querySelector('input[name="age"]').value),
-          email: "null",
           userName: "Robot18",
           country: "India"
         };
