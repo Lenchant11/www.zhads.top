@@ -73,6 +73,14 @@
     .hamburger.active span:nth-child(2) {opacity: 0;}
     .hamburger.active span:nth-child(3) {transform: rotate(-45deg) translate(7px, -6px);}
 
+    /* 导航CTA按钮样式 */
+    .nav-cta-btn {
+      margin-left: auto;
+      margin-right: 16px;
+      font-size: 0.85rem;
+      padding: 8px 16px;
+    }
+
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:10px;border:0;font-weight:600;cursor:pointer;transition:var(--transition); font-size: 0.95rem;}
     .btn-lg{padding:12px 28px;font-size:1.05rem;}
     .btn-block{width:100%}
@@ -80,7 +88,7 @@
     .btn-orange:hover{background:var(--orange-600); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(255, 122, 26, 0.35);}
     .btn:focus{outline:none;box-shadow:var(--ring)}
     
-    .hero{position:relative;padding:60px 0 30px; overflow: hidden;}
+    .hero{position:relative;padding:30px 0 30px; overflow: hidden;}
     .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:stretch}
     .hero-copy h1{font-size:38px;margin:0 0 10px; line-height: 1.2; font-weight: 800;}
     .subtitle{color:var(--muted);max-width:48ch;margin-bottom:14px; font-size: 1.05rem;}
@@ -319,6 +327,15 @@
         border-bottom: 1px solid rgba(255,255,255,0.1);
         width: 100%;
       }
+      
+      /* 确保移动端CTA按钮可见 */
+      .nav-cta-btn {
+        display: flex !important;
+        margin-right: 16px;
+        margin-left: auto;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
     }
     
     @media (max-width: 640px) {
@@ -348,6 +365,13 @@
       .btn {font-size: 0.9rem;}
       .hero-points li {font-size: 0.9rem;}
       .subtitle {font-size: 1rem;}
+      
+      /* 移动端导航CTA按钮更小 */
+      .nav-cta-btn {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        margin-right: 12px;
+      }
     }
   </style>
 </head>
@@ -356,6 +380,10 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Home">MaltaRemote</a>
+      
+      <!-- 移动端CTA按钮 -->
+      <a href="#" class="btn btn-orange nav-cta-btn" id="openFormBtn">Apply Now</a>
+      
       <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
         <span></span>
         <span></span>
@@ -365,7 +393,6 @@
         <a href="#roles" class="nav-link">Job Types</a>
         <a href="#benefits" class="nav-link">Benefits</a>
         <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#" class="btn btn-orange" id="openFormBtn">Apply Now</a>
       </nav>
     </div>
   </header>
