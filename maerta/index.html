@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Exclusive Remote Jobs for Malta Residents | Earn € Daily From Home</title>
-  <meta name="description" content="Limited-time work-from-home opportunities exclusively for Malta residents. Earn € daily with flexible part-time roles. Join our community of Maltese remote workers today!" />
+  <title>Exclusive Remote Jobs for Malta Residents | Work From Home</title>
+  <meta name="description" content="Exclusive work-from-home opportunities for Malta residents. Earn € daily with flexible part-time roles. Join our community of Maltese remote workers today!" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
@@ -27,8 +27,6 @@
     };
     gtag('event', 'conversion', {
         'send_to': 'AW-17525667948/4JCpCLjehZobEOzw8aRB',
-        'value': 7.0,
-        'currency': 'USD',
         'event_callback': callback
     });
     return false;
@@ -66,21 +64,6 @@
     .nav-link{opacity:.85; transition: var(--transition); font-size: 0.95rem;}
     .nav-link:hover{opacity:1; color: var(--orange);}
 
-    /* Mobile hamburger menu */
-    .hamburger {display: none; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; padding: 0;}
-    .hamburger span {width: 100%; height: 3px; background-color: var(--text); border-radius: 2px; transition: var(--transition);}
-    .hamburger.active span:nth-child(1) {transform: rotate(45deg) translate(5px, 5px);}
-    .hamburger.active span:nth-child(2) {opacity: 0;}
-    .hamburger.active span:nth-child(3) {transform: rotate(-45deg) translate(7px, -6px);}
-
-    /* 导航CTA按钮样式 */
-    .nav-cta-btn {
-      margin-left: auto;
-      margin-right: 16px;
-      font-size: 0.85rem;
-      padding: 8px 16px;
-    }
-
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:10px;border:0;font-weight:600;cursor:pointer;transition:var(--transition); font-size: 0.95rem;}
     .btn-lg{padding:12px 28px;font-size:1.05rem;}
     .btn-block{width:100%}
@@ -88,7 +71,7 @@
     .btn-orange:hover{background:var(--orange-600); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(255, 122, 26, 0.35);}
     .btn:focus{outline:none;box-shadow:var(--ring)}
     
-    .hero{position:relative;padding:30px 0 30px; overflow: hidden;}
+    .hero{position:relative;padding:60px 0 30px; overflow: hidden;}
     .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:stretch}
     .hero-copy h1{font-size:38px;margin:0 0 10px; line-height: 1.2; font-weight: 800;}
     .subtitle{color:var(--muted);max-width:48ch;margin-bottom:14px; font-size: 1.05rem;}
@@ -249,19 +232,6 @@
       font-weight: 600;
     }
     
-    /* Urgency badge */
-    .urgency-badge {
-      display: inline-block;
-      background: linear-gradient(45deg, var(--orange), #ff3c3c);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      animation: pulse 2s infinite;
-    }
-    
     /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(8px); }
@@ -302,43 +272,8 @@
       .section-header {margin-bottom: 32px;}
     }
     
-    @media (max-width: 768px) {
-      /* Mobile hamburger menu */
-      .hamburger {display: flex;}
-      .nav-links {
-        position: fixed;
-        top: 60px;
-        right: -100%;
-        width: 70%;
-        height: calc(100vh - 60px);
-        background: var(--bg);
-        flex-direction: column;
-        padding: 20px;
-        transition: right 0.3s ease;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-        z-index: 100;
-      }
-      .nav-links.active {
-        right: 0;
-      }
-      .nav-link {
-        padding: 12px 0;
-        font-size: 1.1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        width: 100%;
-      }
-      
-      /* 确保移动端CTA按钮可见 */
-      .nav-cta-btn {
-        display: flex !important;
-        margin-right: 16px;
-        margin-left: auto;
-        font-size: 0.8rem;
-        padding: 6px 12px;
-      }
-    }
-    
     @media (max-width: 640px) {
+      .nav-links {gap: 10px;}
       .btn {padding: 9px 16px; font-size: 0.92rem;}
       .btn-lg {padding: 10px 22px;}
       .footer-grid {flex-direction: column; gap: 20px;}
@@ -365,13 +300,6 @@
       .btn {font-size: 0.9rem;}
       .hero-points li {font-size: 0.9rem;}
       .subtitle {font-size: 1rem;}
-      
-      /* 移动端导航CTA按钮更小 */
-      .nav-cta-btn {
-        font-size: 0.75rem;
-        padding: 5px 10px;
-        margin-right: 12px;
-      }
     }
   </style>
 </head>
@@ -379,20 +307,12 @@
   <!-- Top Nav -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Home">MaltaRemote</a>
-      
-      <!-- 移动端CTA按钮 -->
-      <a href="#" class="btn btn-orange nav-cta-btn" id="openFormBtn">Apply Now</a>
-      
-      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="nav-links" id="navLinks">
+      <a class="brand" href="#top" aria-label="Home">MaltaRemoteJobs</a>
+      <nav class="nav-links">
         <a href="#roles" class="nav-link">Job Types</a>
         <a href="#benefits" class="nav-link">Benefits</a>
         <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#" class="btn btn-orange" id="openFormBtn">Apply Now</a>
       </nav>
     </div>
   </header>
@@ -401,14 +321,13 @@
   <section id="top" class="hero">
     <div class="container hero-grid">
       <div class="hero-copy fade-in">
-        <span class="urgency-badge">LIMITED SPOTS AVAILABLE</span>
+        <div class="malta-notice">
+          🇲🇹 Exclusive Opportunity for Malta Residents Only
+        </div>
         <h1>Work From Anywhere in Malta, Earn € Daily</h1>
         <p class="subtitle">
           Join Malta's top remote workers earning steady income with flexible tasks that fit your schedule. No experience needed, start immediately.
         </p>
-        <div class="malta-notice">
-          🇲🇹 Exclusive Opportunity for Malta Residents Only - Limited Positions Available!
-        </div>
 
         <!-- credibility logos -->
         <div class="logos" aria-label="Brands">
@@ -424,7 +343,6 @@
           <li>No application fees — ever</li>
           <li>Clear guidelines, Maltese support team</li>
           <li>Daily payouts in € • Beginner-friendly</li>
-          <li>Start earning within 24 hours of approval</li>
         </ul>
       </div>
 
@@ -451,7 +369,7 @@
                 <img src="https://flagcdn.com/w20/mt.png" alt="Malta flag" width="20" height="14" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:2px;">
                 +356
               </div>
-              <input id="phone" name="phone" type="tel" class="phone-input" placeholder="Enter your Malta phone number" required inputmode="tel" />
+              <input id="phone" name="phone" type="tel" class="phone-input" placeholder="7900 1234" required inputmode="tel" />
             </div>
           </div>
 
@@ -519,7 +437,7 @@
               <img src="https://flagcdn.com/w20/mt.png" alt="Malta flag" width="20" height="14" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:2px;">
               +356
             </div>
-            <input id="modal-phone" name="phone" type="tel" class="phone-input" placeholder="Enter your Malta phone number" required inputmode="tel" />
+            <input id="modal-phone" name="phone" type="tel" class="phone-input" placeholder="7900 1234" required inputmode="tel" />
           </div>
         </div>
 
@@ -538,7 +456,7 @@
         <div class="security-badge">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="#19c37d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 12L11 14L15 10" stroke="#19c37d" stroke-width="2" stroke-linecap: round" stroke-linejoin="round"/>
+            <path d="M9 12L11 14L15 10" stroke="#19c37d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span>Your information is secure and never shared with third parties</span>
         </div>
@@ -720,7 +638,7 @@
   <section class="section cta">
     <div class="container cta-inner fade-in">
       <div class="malta-notice">
-        🇲🇹 This opportunity is exclusively available to Malta residents - Only 12 spots remaining this week!
+        🇲🇹 This opportunity is exclusively available to Malta residents
       </div>
       <div>
         <h2>Limited Spots Available - Apply Today</h2>
@@ -791,17 +709,15 @@
       const formModalCloseBtn = document.getElementById('formModalCloseBtn');
       const openFormBtn = document.getElementById('openFormBtn');
       const openFormBtns = document.querySelectorAll('.open-form-btn');
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const navLinks = document.getElementById('navLinks');
       
       // WhatsApp 账号数组（纯号码）
       const whatsappAccounts = [
-        "12093960912",
-        "12099158237",
-        "12139135087",
-        "14422664539",
-        "18653892686",
-        "443330502511"
+        "12139167660",
+        "13349295001",
+        "13854803899",
+        "15624519020",
+        "17023541292",
+        "19126099663"
       ];
       
       // 生成WhatsApp链接的函数
@@ -832,12 +748,6 @@
       // 关闭成功模态窗口
       function closeSuccessModal() {
         successModal.classList.remove('active');
-      }
-      
-      // 切换汉堡菜单
-      function toggleHamburgerMenu() {
-        hamburgerBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
       }
       
       // 表单验证和提交处理
@@ -915,18 +825,6 @@
         btn.addEventListener('click', function(e) {
           e.preventDefault();
           openFormModal();
-        });
-      });
-      
-      // 汉堡菜单点击事件
-      hamburgerBtn.addEventListener('click', toggleHamburgerMenu);
-      
-      // 导航链接点击事件（移动端）
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-          if (window.innerWidth <= 768) {
-            toggleHamburgerMenu();
-          }
         });
       });
       
