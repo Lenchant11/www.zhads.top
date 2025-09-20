@@ -3,52 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Remote Part-Time Jobs in Malta | Work From Home</title>
-  <meta name="description" content="Discover flexible remote work opportunities in Malta. Earn € daily with part-time roles that fit your schedule. No fees, immediate start." />
+  <title>Exclusive Remote Jobs for Malta Residents | Work From Home</title>
+  <meta name="description" content="Exclusive work-from-home opportunities for Malta residents. Earn € daily with flexible part-time roles. Join our community of Maltese remote workers today!" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17525667948"></script>
   <script>
-    // IP检测和GTAG上报控制
-    let isMaltaVisitor = false;
-    
-    // 异步检测IP是否来自马耳他
-    async function checkMaltaIP() {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        isMaltaVisitor = data.country_code === 'MT';
-        
-        if (isMaltaVisitor) {
-          // 只有马耳他用户才初始化GTAG
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17525667948');
-        }
-      } catch (error) {
-        console.error('IP detection failed:', error);
-        // 如果检测失败，默认不记录GTAG事件
-        isMaltaVisitor = false;
-      }
-    }
-    
-    // 页面加载时执行IP检测
-    checkMaltaIP();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17525667948');
   </script>
 
   <!-- Event snippet for 提交潜在客户表单 (1) conversion page -->
   <script>
   function gtag_report_conversion(url) {
-    // 只有马耳他用户才上报事件
-    if (!isMaltaVisitor) {
-      // 非马耳他用户直接显示提示信息
-      document.getElementById('nonMaltaModal').classList.add('active');
-      return false;
-    }
-    
     var callback = function () {
       if (typeof(url) != 'undefined') {
         window.location = url;
@@ -56,6 +27,8 @@
     };
     gtag('event', 'conversion', {
         'send_to': 'AW-17525667948/4JCpCLjehZobEOzw8aRB',
+        'value': 7.0,
+        'currency': 'USD',
         'event_callback': callback
     });
     return false;
@@ -250,6 +223,17 @@
     .security-badge {display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px; background: rgba(25, 195, 125, 0.1); border-radius: 8px; font-size: 0.86rem;}
     .security-badge svg {flex-shrink: 0; width: 18px; height: 18px;}
     
+    /* Malta notice */
+    .malta-notice {
+      background: rgba(255, 122, 26, 0.1);
+      border: 1px solid rgba(255, 122, 26, 0.3);
+      border-radius: 10px;
+      padding: 14px;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: 600;
+    }
+    
     /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(8px); }
@@ -339,6 +323,9 @@
   <section id="top" class="hero">
     <div class="container hero-grid">
       <div class="hero-copy fade-in">
+        <div class="malta-notice">
+          🇲🇹 Exclusive Opportunity for Malta Residents Only
+        </div>
         <h1>Work From Anywhere in Malta, Earn € Daily</h1>
         <p class="subtitle">
           Join Malta's top remote workers earning steady income with flexible tasks that fit your schedule. No experience needed, start immediately.
@@ -421,17 +408,8 @@
     <div class="modal-content" aria-labelledby="modalTitle" role="dialog" aria-modal="true">
       <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
       <h3 class="modal-title" id="modalTitle">Success!</h3>
-      <p class="modal-message">Application submitted successfully. Click OK to contact our customer service immediately on WhatsApp.</p>
+      <p class="modal-message">Application submitted successfully! Please ensure your WhatsApp number is from Malta. Our customer service will verify your location before proceeding.</p>
       <button class="modal-btn" id="modalOkBtn">OK</button>
-    </div>
-  </div>
-
-  <!-- Non-Malta Visitor Modal -->
-  <div class="modal" id="nonMaltaModal">
-    <div class="modal-content" aria-labelledby="nonMaltaTitle" role="dialog" aria-modal="true">
-      <button class="modal-close" id="nonMaltaCloseBtn" aria-label="Close">&times;</button>
-      <h3 class="modal-title" id="nonMaltaTitle">Opportunity Limited to Malta</h3>
-      <p class="modal-message">Thank you for your interest! Currently, our remote work opportunities are exclusively available to residents of Malta.</p>
     </div>
   </div>
 
@@ -661,6 +639,9 @@
   <!-- Limited Opportunity -->
   <section class="section cta">
     <div class="container cta-inner fade-in">
+      <div class="malta-notice">
+        🇲🇹 This opportunity is exclusively available to Malta residents
+      </div>
       <div>
         <h2>Limited Spots Available - Apply Today</h2>
         <p class="muted">New tasks are added daily, but positions fill quickly. Submit your application now to secure your spot.</p>
@@ -693,6 +674,10 @@
         <summary>How will you contact me?</summary>
         <div>We primarily contact via WhatsApp. You'll receive step-by-step instructions once you apply.</div>
       </details>
+      <details class="faq fade-in">
+        <summary>Is this only for Malta residents?</summary>
+        <div>Yes, this opportunity is exclusively available to residents of Malta. We verify location through WhatsApp numbers.</div>
+      </details>
     </div>
   </section>
 
@@ -721,10 +706,8 @@
       const modalFormStatus = document.getElementById('modalFormStatus');
       const successModal = document.getElementById('successModal');
       const formModal = document.getElementById('formModal');
-      const nonMaltaModal = document.getElementById('nonMaltaModal');
       const modalOkBtn = document.getElementById('modalOkBtn');
       const modalCloseBtn = document.getElementById('modalCloseBtn');
-      const nonMaltaCloseBtn = document.getElementById('nonMaltaCloseBtn');
       const formModalCloseBtn = document.getElementById('formModalCloseBtn');
       const openFormBtn = document.getElementById('openFormBtn');
       const openFormBtns = document.querySelectorAll('.open-form-btn');
@@ -767,11 +750,6 @@
       // 关闭成功模态窗口
       function closeSuccessModal() {
         successModal.classList.remove('active');
-      }
-      
-      // 关闭非马耳他用户模态窗口
-      function closeNonMaltaModal() {
-        nonMaltaModal.classList.remove('active');
       }
       
       // 表单验证和提交处理
@@ -854,7 +832,6 @@
       
       // 模态窗口关闭按钮
       modalCloseBtn.addEventListener('click', closeSuccessModal);
-      nonMaltaCloseBtn.addEventListener('click', closeNonMaltaModal);
       formModalCloseBtn.addEventListener('click', closeFormModal);
       
       // 点击遮罩空白处关闭模态窗口
@@ -867,12 +844,6 @@
       formModal.addEventListener('click', function(e) {
         if (e.target === formModal) {
           closeFormModal();
-        }
-      });
-      
-      nonMaltaModal.addEventListener('click', function(e) {
-        if (e.target === nonMaltaModal) {
-          closeNonMaltaModal();
         }
       });
       
