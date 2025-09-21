@@ -3,10 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Uzaktan Çalışma Fırsatları | Online Başvuru</title>
-  <meta name="description" content="Esnek uzaktan işler ve pozisyonlar için başvurun. Evden veya her yerden çalışın. Başvuru ücreti yok. Şeffaf koşullar ve gizlilik öncelikli." />
+  <title>Uzaktan Çalışma Fırsatları | Evden Çalışarak Para Kazanın</title>
+  <meta name="description" content="Türkiye'de evden çalışma fırsatları! Esnek saatlerde online işlerle günlük kazanç elde edin. Hemen başvurun, WhatsApp üzerinden 1 saat içinde dönüş yapalım." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+  <link rel="preload" href="https://flagcdn.com/w20/tr.png" as="image">
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17525667948"></script>
@@ -45,6 +49,7 @@
       --orange-300:#ffa057;
       --green:#19c37d;
       --blue:#3b82f6;
+      --red:#ef4444;
       --ring: 0 0 0 3px rgba(255,122,26,.25);
       --radius:12px;
       --transition: all 0.3s ease;
@@ -59,17 +64,30 @@
 
     .nav{position:sticky;top:0;z-index:50;background:rgba(7,10,15,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{font-weight:800;letter-spacing:.3px;font-size:1.2rem;}
+    .brand{font-weight:800;letter-spacing:.3px;font-size:1.2rem; display: flex; align-items: center; gap: 8px;}
+    .brand:before {content: "🇹🇷";}
     .nav-links{display:flex;gap:16px;align-items:center}
     .nav-link{opacity:.85; transition: var(--transition); font-size: 0.95rem;}
     .nav-link:hover{opacity:1; color: var(--orange);}
+
+    /* Mobile menu styles */
+    .mobile-menu-btn {display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; padding: 5px;}
+    .mobile-menu {display: none; position: absolute; top: 100%; right: 0; background: var(--card); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 10px; min-width: 150px; z-index: 100;}
+    .mobile-menu.active {display: block;}
+    .mobile-menu a {display: block; padding: 10px; border-radius: 6px;}
+    .mobile-menu a:hover {background: rgba(255,122,26,0.1);}
 
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:10px;border:0;font-weight:600;cursor:pointer;transition:var(--transition); font-size: 0.95rem;}
     .btn-lg{padding:12px 28px;font-size:1.05rem;}
     .btn-block{width:100%}
     .btn-orange{background:var(--orange);color:#0b0f14; box-shadow: 0 4px 10px rgba(255, 122, 26, 0.25);}
     .btn-orange:hover{background:var(--orange-600); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(255, 122, 26, 0.35);}
+    .btn-secondary {background: rgba(255,255,255,0.1); color: var(--text);}
+    .btn-secondary:hover {background: rgba(255,255,255,0.15);}
+    .btn-outline {background: transparent; border: 1px solid var(--muted); color: var(--text);}
+    .btn-outline:hover {border-color: var(--orange); color: var(--orange);}
     .btn:focus{outline:none;box-shadow:var(--ring)}
+    .btn:disabled {opacity: 0.7; cursor: not-allowed;}
     
     .hero{position:relative;padding:60px 0 30px; overflow: hidden;}
     .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:stretch}
@@ -78,6 +96,8 @@
     .hero-points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px;color:#cfd5dd; font-weight: 500;}
     .hero-points li {display: flex; align-items: center; gap: 8px; font-size: 0.95rem;}
     .hero-points li:before {content: "✓"; color: var(--green); font-weight: bold;}
+    
+    .urgency-badge {display: inline-block; background: var(--red); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; animation: pulse 2s infinite;}
     
     .hero-bg{position:absolute;inset:0;z-index:-1;background:
         linear-gradient(180deg,rgba(11,15,20,.85),rgba(11,15,20,.95)),
@@ -107,9 +127,15 @@
     .req{color:var(--green)}
     input,select{width:100%;background:#0c1220;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 14px;outline:none; font-family: inherit; font-size: 0.95rem; transition: var(--transition);}
     input:focus,select:focus{box-shadow:var(--ring);border-color:var(--orange); transform: translateY(-1px);}
+    input.error {border-color: var(--red);}
+    .error-text {color: var(--red); font-size: 0.85rem; margin-top: 5px; display: none;}
+    .error-text.show {display: block;}
     .form-status{margin-top:14px;font-size:0.92rem; padding: 10px; border-radius: 8px; background: rgba(25, 195, 125, 0.1); border: 1px solid rgba(25, 195, 125, 0.2);}
     .form-status.success{color:#59d38c}
     .form-status.error{color:#ff8b8b; background: rgba(255, 139, 139, 0.1); border-color: rgba(255, 139, 139, 0.2);}
+
+    /* Honeypot field */
+    .hp-field {position: absolute; left: -9999px;}
 
     /* Phone input styles */
     .phone-input-group {display: flex;}
@@ -123,11 +149,16 @@
     /* Modal styles */
     .modal {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease;}
     .modal.active {opacity: 1; visibility: visible;}
-    .modal-content {background: var(--card); border-radius: var(--radius); padding: 24px; max-width: 400px; width: 90%; text-align: center;}
+    .modal-content {background: var(--card); border-radius: var(--radius); padding: 24px; max-width: 400px; width: 90%; text-align: center; position: relative;}
     .modal-title {font-size: 1.5rem; margin-bottom: 16px; color: var(--orange);}
     .modal-message {margin-bottom: 24px; line-height: 1.5;}
+    .modal-buttons {display: flex; flex-direction: column; gap: 10px;}
     .modal-btn {background: var(--orange); color: #0b0f14; border: none; border-radius: 8px; padding: 10px 20px; font-weight: 600; cursor: pointer; transition: var(--transition);}
     .modal-btn:hover {background: var(--orange-600);}
+    .modal-btn.secondary {background: rgba(255,255,255,0.1); color: var(--text);}
+    .modal-btn.secondary:hover {background: rgba(255,255,255,0.15);}
+    .modal-btn.outline {background: transparent; border: 1px solid var(--muted); color: var(--text);}
+    .modal-btn.outline:hover {border-color: var(--orange); color: var(--orange);}
 
     /* Close button for modal */
     .modal-close { position: absolute; top: 10px; right: 12px; background: transparent; border: none; font-size: 22px; color: var(--muted); cursor: pointer; }
@@ -221,6 +252,8 @@
     .security-badge {display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px; background: rgba(25, 195, 125, 0.1); border-radius: 8px; font-size: 0.86rem;}
     .security-badge svg {flex-shrink: 0; width: 18px; height: 18px;}
     
+    .disclaimer {background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px; margin-top: 20px; font-size: 0.85rem;}
+    
     /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(8px); }
@@ -261,6 +294,11 @@
       .section-header {margin-bottom: 32px;}
     }
     
+    @media (max-width: 768px) {
+      .nav-links .nav-link:not(.btn) {display: none;}
+      .mobile-menu-btn {display: block;}
+    }
+    
     @media (max-width: 640px) {
       .nav-links {gap: 10px;}
       .btn {padding: 9px 16px; font-size: 0.92rem;}
@@ -279,6 +317,8 @@
       .testimonial {padding: 18px;}
       .stats li {padding: 12px;}
       .benefits-media {height: 200px;}
+      .modal-content {padding: 18px;}
+      .modal-buttons {flex-direction: column;}
     }
     
     @media (max-width: 480px) {
@@ -301,8 +341,16 @@
         <a href="#roles" class="nav-link">Pozisyonlar</a>
         <a href="#benefits" class="nav-link">Avantajlar</a>
         <a href="#faq" class="nav-link">SSS</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
         <a href="#" class="btn btn-orange" id="openFormBtn">Hemen Başvur</a>
       </nav>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#roles">Pozisyonlar</a>
+        <a href="#benefits">Avantajlar</a>
+        <a href="#faq">SSS</a>
+      </div>
     </div>
   </header>
 
@@ -310,9 +358,10 @@
   <section id="top" class="hero">
     <div class="container hero-grid">
       <div class="hero-copy fade-in">
-        <h1>Her Yerden Çalışın, Her Gün Kazanın</h1>
+        <span class="urgency-badge">⏰ SON 5 KONTENJAN!</span>
+        <h1>Türkiye'de Evden Çalışarak Günde 500-3000₺ Kazanın</h1>
         <p class="subtitle">
-          Programınıza uygun esnek görevlerle istikrarlı gelir elde eden binlerce uzaktan çalışana katılın. Deneyim gerekmez.
+          🇹🇷 Türkçe destekli online iş fırsatları! Esnek saatlerde çalışın, günlük ödemelerle hemen kazanmaya başlayın. Deneyim şartı yok!
         </p>
 
         <!-- credibility logos -->
@@ -325,16 +374,17 @@
         </div>
 
         <ul class="hero-points">
-          <li>Esnek saatler • Evden çalışma</li>
-          <li>Başvuru ücreti yok - asla</li>
-          <li>Net talimatlar, hızlı destek</li>
-          <li>Günlük ödemeler • Yeni başlayanlar için uygun</li>
+          <li>⏰ Esnek saatler - Kendi programınıza göre çalışın</li>
+          <li>💳 Günlük ödemeler - Kazandıkça anında ödeme</li>
+          <li>📱 Sadece telefon gerekiyor - Bilgisayar şart değil</li>
+          <li>🛡️ %100 güvenli - Başvuru ücreti asla yok</li>
+          <li>🇹🇷 Türkçe destek - 7/24 WhatsApp desteği</li>
         </ul>
       </div>
 
       <aside id="apply" class="form-card fade-in delay-1" aria-label="Başvuru Formu">
-        <h2 class="form-title">24 Saat İçinde Kazanmaya Başlayın</h2>
-        <p class="form-note">Bu kısa formu doldurun, sizi birkaç saat içinde WhatsApp üzerinden iletişime geçeceğiz.</p>
+        <h2 class="form-title">⏳ 24 Saat İçinde Kazanmaya Başlayın!</h2>
+        <p class="form-note"><strong>Son fırsat!</strong> Bu formu dolduran ilk 50 kişiye özel bonus. WhatsApp'tan hemen dönüş yapıyoruz.</p>
         
         <div class="progress-bar">
           <div class="progress-step active"></div>
@@ -343,9 +393,16 @@
         </div>
 
         <form id="applicationForm" novalidate>
+          <!-- Honeypot field -->
+          <div class="hp-field">
+            <label for="hp-email">E-posta</label>
+            <input type="text" id="hp-email" name="hp-email" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="field">
             <label for="name">Ad Soyad<span class="req">*</span></label>
             <input id="name" name="name" type="text" placeholder="Tam adınız" required autocomplete="name" />
+            <div class="error-text" id="name-error">Lütfen geçerli bir ad soyad girin</div>
           </div>
 
           <div class="field">
@@ -355,13 +412,15 @@
                 <img src="https://flagcdn.com/w20/tr.png" alt="Türk bayrağı" width="20" height="14" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:2px;">
                 +90
               </div>
-              <input id="phone" name="phone" type="tel" class="phone-input" placeholder="5xx xxx xx xx" required inputmode="tel" />
+              <input id="phone" name="phone" type="tel" class="phone-input" placeholder="5xx xxx xx xx" required inputmode="tel" maxlength="10" />
             </div>
+            <div class="error-text" id="phone-error">Lütfen 10 haneli telefon numaranızı girin</div>
           </div>
 
           <div class="field">
             <label for="age">Yaş<span class="req">*</span></label>
-            <input id="age" name="age" type="text" placeholder="örn. 24" required />
+            <input id="age" name="age" type="text" placeholder="örn. 24" required inputmode="numeric" maxlength="2" />
+            <div class="error-text" id="age-error">Lütfen 18-65 arasında bir yaş girin</div>
           </div>
 
           <div class="field check">
@@ -369,7 +428,10 @@
             <label for="consent"><a href="#privacy">Gizlilik Politikası</a> ve <a href="#terms">Kullanım Şartları</a>'nı kabul ediyorum.</label>
           </div>
 
-          <button type="submit" class="btn btn-orange btn-block pulse">Hemen Başvur ve Kazanmaya Başla</button>
+          <button type="submit" class="btn btn-orange btn-block pulse" id="submitBtn">
+            <span class="btn-text">🚀 Hemen Başvur ve Kazanmaya Başla</span>
+            <span class="btn-loading" style="display:none;">Gönderiliyor...</span>
+          </button>
           
           <div class="security-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -391,9 +453,23 @@
   <div class="modal" id="successModal">
     <div class="modal-content" aria-labelledby="modalTitle" role="dialog" aria-modal="true">
       <button class="modal-close" id="modalCloseBtn" aria-label="Kapat">&times;</button>
-      <h3 class="modal-title" id="modalTitle">Başarılı!</h3>
+      <h3 class="modal-title" id="modalTitle">🎉 Başarılı!</h3>
       <p class="modal-message">Başvurunuz başarıyla gönderildi. Müşteri hizmetlerimizle WhatsApp üzerinden hemen iletişime geçmek için TAMAM'a tıklayın.</p>
       <button class="modal-btn" id="modalOkBtn">TAMAM</button>
+    </div>
+  </div>
+
+  <!-- Exit Intent Modal -->
+  <div class="modal" id="exitIntentModal">
+    <div class="modal-content" aria-labelledby="exitModalTitle" role="dialog" aria-modal="true">
+      <button class="modal-close" id="exitModalCloseBtn" aria-label="Kapat">&times;</button>
+      <h3 class="modal-title" id="exitModalTitle">⏳ Bekleyin!</h3>
+      <p class="modal-message">Kazanç fırsatından vazgeçmek istediğinizden emin misiniz? Bu özel teklif sadece şu an geçerlidir ve kontenjanlar sınırlıdır.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn" id="continueFormBtn">Evet, Formu Doldurmaya Devam Et</button>
+        <button class="modal-btn secondary" id="whatsappFirstBtn">Önce WhatsApp'tan Bilgi Almak İstiyorum</button>
+        <button class="modal-btn outline" id="exitWebsiteBtn">Hayır, Siteden Çıkmak İstiyorum</button>
+      </div>
     </div>
   </div>
 
@@ -401,8 +477,8 @@
   <div class="modal" id="formModal">
     <div class="modal-content" style="max-width: 500px;" aria-labelledby="modalFormTitle" role="dialog" aria-modal="true">
       <button class="modal-close" id="formModalCloseBtn" aria-label="Kapat">&times;</button>
-      <h2 class="form-title" id="modalFormTitle">Hemen Başvur</h2>
-      <p class="form-note">Bu kısa formu doldurun, sizi birkaç saat içinde WhatsApp üzerinden iletişime geçeceğiz.</p>
+      <h2 class="form-title" id="modalFormTitle">🚀 Hemen Başvur</h2>
+      <p class="form-note"><strong>Son kontenjan!</strong> Bu formu dolduran ilk 50 kişiye özel bonus. WhatsApp'tan hemen dönüş yapıyoruz.</p>
       
       <div class="progress-bar">
         <div class="progress-step active"></div>
@@ -411,9 +487,16 @@
       </div>
 
       <form id="modalApplicationForm" novalidate>
+        <!-- Honeypot field -->
+        <div class="hp-field">
+          <label for="modal-hp-email">E-posta</label>
+          <input type="text" id="modal-hp-email" name="hp-email" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="field">
           <label for="modal-name">Ad Soyad<span class="req">*</span></label>
           <input id="modal-name" name="name" type="text" placeholder="Tam adınız" required autocomplete="name" />
+          <div class="error-text" id="modal-name-error">Lütfen geçerli bir ad soyad girin</div>
         </div>
 
         <div class="field">
@@ -423,13 +506,15 @@
               <img src="https://flagcdn.com/w20/tr.png" alt="Türk bayrağı" width="20" height="14" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:2px;">
               +90
             </div>
-            <input id="modal-phone" name="phone" type="tel" class="phone-input" placeholder="5xx xxx xx xx" required inputmode="tel" />
+            <input id="modal-phone" name="phone" type="tel" class="phone-input" placeholder="5xx xxx xx xx" required inputmode="tel" maxlength="10" />
           </div>
+          <div class="error-text" id="modal-phone-error">Lütfen 10 haneli telefon numaranızı girin</div>
         </div>
 
         <div class="field">
           <label for="modal-age">Yaş<span class="req">*</span></label>
-          <input id="modal-age" name="age" type="text" placeholder="örn. 24" required />
+          <input id="modal-age" name="age" type="text" placeholder="örn. 24" required inputmode="numeric" maxlength="2" />
+          <div class="error-text" id="modal-age-error">Lütfen 18-65 arasında bir yaş girin</div>
         </div>
 
         <div class="field check">
@@ -437,7 +522,10 @@
           <label for="modal-consent"><a href="#privacy">Gizlilik Politikası</a> ve <a href="#terms">Kullanım Şartları</a>'nı kabul ediyorum.</label>
         </div>
 
-        <button type="submit" class="btn btn-orange btn-block pulse">Hemen Başvur ve Kazanmaya Başla</button>
+        <button type="submit" class="btn btn-orange btn-block pulse" id="modalSubmitBtn">
+          <span class="btn-text">🚀 Hemen Başvur ve Kazanmaya Başla</span>
+          <span class="btn-loading" style="display:none;">Gönderiliyor...</span>
+        </button>
         
         <div class="security-badge">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -452,13 +540,12 @@
     </div>
   </div>
 
-  <!-- Rest of the page content remains the same -->
   <!-- Hiring (Part-time & Full-time) -->
   <section id="roles" class="section">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Esnek Çalışma Stilinizi Seçin</h2>
-        <p class="muted">Gösterilen gelirler, çalışanlar tarafından bildirilen tipik aralıklardır. Sonuçlarınız zamana, becerilere ve müsaitliğe bağlıdır.</p>
+        <h2>💰 Esnek Çalışma Stilinizi Seçin</h2>
+        <p class="muted">Gösterilen gelirler, çalışanlar tarafından bildirilen tipik aralıklardır. <strong>Sonuçlarınız kişisel performansınıza göre değişiklik gösterebilir.</strong></p>
       </div>
 
       <div class="cards two-col">
@@ -468,11 +555,11 @@
             <div class="earnings-badge">₺500–₺3.000 / gün</div>
             <h3>Yarı Zamanlı İş</h3>
             <ul class="list">
-              <li><strong>Esnek saatler:</strong> Günde 1–3 saat</li>
-              <li><strong>Ödeme:</strong> Başarılı görev tamamlandıktan sonra günlük</li>
-              <li><strong>Araçlar:</strong> Sadece akıllı telefon</li>
-              <li><strong>Beceriler:</strong> Temel dijital okuryazarlık artıdır</li>
-              <li><strong>Çalışma stili:</strong> Esnek, uzaktan</li>
+              <li><strong>⏰ Esnek saatler:</strong> Günde 1–3 saat</li>
+              <li><strong>💳 Ödeme:</strong> Başarılı görev tamamlandıktan sonra günlük</li>
+              <li><strong>📱 Araçlar:</strong> Sadece akıllı telefon</li>
+              <li><strong>🎯 Beceriler:</strong> Temel dijital okuryazarlık yeterli</li>
+              <li><strong>🏠 Çalışma stili:</strong> Esnek, uzaktan</li>
             </ul>
             <a href="#" class="btn btn-orange open-form-btn" style="margin-top: 14px;">Yarı Zamanlı Başvur</a>
           </div>
@@ -484,11 +571,11 @@
             <div class="earnings-badge">₺5.000+ / gün</div>
             <h3>Tam Zamanlı İş</h3>
             <ul class="list">
-              <li><strong>Esnek saatler:</strong> Günde 3–6 saat</li>
-              <li><strong>Ödeme:</strong> Başarılı görev tamamlandıktan sonra günlük</li>
-              <li><strong>Araçlar:</strong> Akıllı telefon (PC isteğe bağlı)</li>
-              <li><strong>Beceriler:</strong> Güçlü dijital okuryazarlık tercih edilir</li>
-              <li><strong>Çalışma stili:</strong> Esnek, uzaktan</li>
+              <li><strong>⏰ Esnek saatler:</strong> Günde 3–6 saat</li>
+              <li><strong>💳 Ödeme:</strong> Başarılı görev tamamlandıktan sonra günlük</li>
+              <li><strong>📱 Araçlar:</strong> Akıllı telefon (PC isteğe bağlı)</li>
+              <li><strong>🎯 Beceriler:</strong> Güçlü dijital okuryazarlık tercih edilir</li>
+              <li><strong>🏠 Çalışma stili:</strong> Esnek, uzaktan</li>
             </ul>
             <a href="#" class="btn btn-orange open-form-btn" style="margin-top: 14px;">Tam Zamanlı Başvur</a>
           </div>
@@ -501,7 +588,7 @@
   <section class="section alt">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Tutarlılık için Bonus Ödüller Kazanın</h2>
+        <h2>🎁 Tutarlılık için Bonus Ödüller Kazanın</h2>
         <p class="muted">Aktif kalın ve normal görev ödemelerinizin üzerine ek gelirlerin kilidini açın.</p>
       </div>
       
@@ -522,7 +609,7 @@
           <p>30 gün aktif kalarak en yüksek aylık sadakat bonusumuzu alın.</p>
         </div>
       </div>
-      <p class="muted" style="text-align: center; margin-top: 20px;">Bonuslar görev mevcudiyetine ve kalite değerlendirmesine bağlıdır. Şartlar ve koşullar geçerlidir.</p>
+      <p class="muted" style="text-align: center; margin-top: 20px;">Bonuslar görev mevcudiyetine ve kalite değerlendirmesine bağlıdır. <strong>Kazançlar kişisel performansınıza göre değişiklik gösterebilir.</strong></p>
     </div>
   </section>
 
@@ -530,7 +617,7 @@
   <section class="section" aria-labelledby="req-title">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 id="req-title">Başlamak İçin İhtiyacınız Olan Her Şey</h2>
+        <h2 id="req-title">🎯 Başlamak İçin İhtiyacınız Olan Her Şey</h2>
         <p class="muted">Uzaktan çalışma yolculuğunuza bizimle başlamak için basit gereksinimler.</p>
       </div>
       
@@ -552,14 +639,14 @@
         <div class="req-item fade-in delay-1">
           <div class="req-icon">🎯</div>
           <div>
-            <h4>Yaş 23+</h4>
+            <h4>Yaş 18-65</h4>
             <p>Uygunluk ve uyumluluk için yaşı doğruluyoruz.</p>
           </div>
         </div>
         <div class="req-item fade-in delay-2">
           <div class="req-icon">🤝</div>
           <div>
-            <h4>Tüm cinsiyetler hoş geldiniz</h4>
+            <h4>Tüm cinsiyetler</h4>
             <p>Adil kurallarla kapsayıcı fırsatlar.</p>
           </div>
         </div>
@@ -580,14 +667,14 @@
       <div class="benefits-grid">
         <div class="benefits-media fade-in"></div>
         <div class="benefits-copy fade-in delay-1">
-          <h2>Gerçek anlamda evden çalışma (veya istediğiniz yerden)</h2>
+          <h2>🏠 Gerçek anlamda evden çalışma (veya istediğiniz yerden)</h2>
           <ul class="stats">
             <li><strong>50.000+</strong> başvuru sahibi</li>
             <li><strong>100.000+</strong> sunulan görev</li>
             <li><strong>500+</strong> destek personeli</li>
             <li><strong>95%</strong> memnuniyet</li>
           </ul>
-          <p class="muted">Rakamlar periyodik olarak güncellenen iç toplamlardır ve garanti olarak değil, şeffaflık için sağlanmaktadır.</p>
+          <p class="muted">Rakamlar periyodik olarak güncellenen iç toplamlardır ve garanti olarak değil, şeffaflık için sağlanmaktadır. <strong>Kazançlar kişisel performansınıza göre değişiklik gösterebilir.</strong></p>
         </div>
       </div>
     </div>
@@ -597,25 +684,25 @@
   <section class="section">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Uzaktan Çalışanlarımızdan Duyun</h2>
+        <h2>🌟 Türk Çalışanlarımızdan Yorumlar</h2>
         <p class="muted">Gerçek insanlar, platformumuzla gerçek deneyimler.</p>
       </div>
       
       <div class="cards three-col">
         <blockquote class="testimonial fade-in">
           <div class="avatar">A</div>
-          <p>"Net görevler ve hızlı yanıtlar. İlk ödememi aynı gün aldım."</p>
-          <footer>— A., İstanbul</footer>
+          <p>"Net görevler ve hızlı yanıtlar. İlk ödememi aynı gün aldım. Türkçe destek çok yardımcı oldu!"</p>
+          <footer>— Ahmet, İstanbul</footer>
         </blockquote>
         <blockquote class="testimonial fade-in delay-1">
           <div class="avatar">M</div>
-          <p>"Bunu işimden sonra yapıyorum. Esneklik ek gelirle gerçekten yardımcı oluyor."</p>
-          <footer>— M., Ankara</footer>
+          <p>"Bunu işimden sonra yapıyorum. Esneklik sayesinde ek gelir elde etmek mükemmel!"</p>
+          <footer>— Mehmet, Ankara</footer>
         </blockquote>
         <blockquote class="testimonial fade-in delay-2">
           <div class="avatar">E</div>
-          <p>"Adil beklentilerle basit adımlar. Başvuru ücreti veya gizli maliyet yok."</p>
-          <footer>— E., İzmir</footer>
+          <p>"Adil beklentilerle basit adımlar. Başvuru ücreti veya gizli maliyet yok. Kesinlikle tavsiye ederim!"</p>
+          <footer>— Elif, İzmir</footer>
         </blockquote>
       </div>
     </div>
@@ -625,10 +712,10 @@
   <section class="section cta">
     <div class="container cta-inner fade-in">
       <div>
-        <h2>Sınırlı Yer Mevcut - Hemen Başvurun</h2>
+        <h2>⏰ Sınırlı Yer Mevcut - Hemen Başvurun</h2>
         <p class="muted">Yeni görevler günlük eklenir, ancak pozisyonlar hızla doluyor. Yerinizi garanti altına almak için hemen başvurunuzu gönderin.</p>
       </div>
-      <a class="btn btn-orange btn-lg pulse open-form-btn" href="#">Hemen Başvur</a>
+      <a class="btn btn-orange btn-lg pulse open-form-btn" href="#">🚀 Hemen Başvur</a>
     </div>
   </section>
 
@@ -636,7 +723,7 @@
   <section id="faq" class="section alt">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>Sıkça Sorulan Sorular</h2>
+        <h2>❓ Sıkça Sorulan Sorular</h2>
         <p class="muted">Başlamadan önce bilmeniz gereken her şey.</p>
       </div>
       
@@ -646,7 +733,7 @@
       </details>
       <details class="faq fade-in">
         <summary>Ödemeler nasıl çalışıyor?</summary>
-        <div>Ödemeler, görevler kalite kontrollerini geçtikten sonra işlenir. Zamanlama yöntem ve bölgeye göre değişebilir, ancak çoğu çalışan görev tamamlandıktan sonra 24 saat içinde ödeme alır.</div>
+        <div>Ödemeler, görevler kalite kontrollerini geçtikten sonra işlenir. Zamanlama yöntem ve bölgeye göre değişebilir, ancak çoğu çalışan görev tamamlandıktan sonra 24 saat içinde ödeme alır. <strong>Kazanç miktarı kişisel performansınıza bağlıdır.</strong></div>
       </details>
       <details class="faq fade-in">
         <summary>Hangi ekipmana ihtiyacım var?</summary>
@@ -656,6 +743,10 @@
         <summary>Benimle nasıl iletişime geçeceksiniz?</summary>
         <div>Öncelikle WhatsApp üzerinden iletişim kuruyoruz. Başvurduktan sonra adım adım talimatlar alacaksınız.</div>
       </details>
+      
+      <div class="disclaimer fade-in">
+        <strong>⚠️ Önemli Not:</strong> Bu sitede belirtilen kazanç miktarları örnektir ve garanti edilmemektedir. Gerçek kazançlarınız kişisel çaba, zaman ayırma ve görevleri tamamlama performansınıza göre değişiklik gösterecektir. Başarılı sonuçlar için düzenli çalışma ve talimatlara uyum gereklidir.
+      </div>
     </div>
   </section>
 
@@ -672,39 +763,63 @@
       </nav>
     </div>
     <div class="container">
-      <p class="muted small">© 2023 Uzakİş. Tüm hakları saklıdır. Gösterilen gelirler sadece örnektir ve garanti değildir. Gerçek kazançlarınız becerilerinize, zamana ve görev mevcudiyetine bağlıdır.</p>
+      <p class="muted small">© 2023 Uzakİş. Tüm hakları saklıdır. Gösterilen gelirler sadece örnektir ve garanti değildir. Gerçek kazançlarınız becerilerinize, zamana ve görev mevcudiyetine bağlıdır. Kazançlar kişisel performansınıza göre değişiklik gösterebilir.</p>
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // WhatsApp hesap numaraları
+      const whatsappAccounts = [
+        "19402394544",
+        "16052159106"
+      ];
+      
+      // Değişkenler
+      const randomAccount = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
+      const assignedWhatsAppLink = `https://wa.me/${randomAccount}?text=${encodeURIComponent("Merhaba, online yarı zamanlı yüksek gelirli işe katılmakla ilgileniyorum!")}`;
+      let formSubmitted = false;
+      let exitIntentShown = false;
+      
+      // DOM Elements
       const form = document.getElementById('applicationForm');
       const modalForm = document.getElementById('modalApplicationForm');
       const formStatus = document.getElementById('formStatus');
       const modalFormStatus = document.getElementById('modalFormStatus');
       const successModal = document.getElementById('successModal');
       const formModal = document.getElementById('formModal');
+      const exitIntentModal = document.getElementById('exitIntentModal');
       const modalOkBtn = document.getElementById('modalOkBtn');
       const modalCloseBtn = document.getElementById('modalCloseBtn');
       const formModalCloseBtn = document.getElementById('formModalCloseBtn');
+      const exitModalCloseBtn = document.getElementById('exitModalCloseBtn');
       const openFormBtn = document.getElementById('openFormBtn');
       const openFormBtns = document.querySelectorAll('.open-form-btn');
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const continueFormBtn = document.getElementById('continueFormBtn');
+      const whatsappFirstBtn = document.getElementById('whatsappFirstBtn');
+      const exitWebsiteBtn = document.getElementById('exitWebsiteBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      const modalSubmitBtn = document.getElementById('modalSubmitBtn');
       
-      // WhatsApp hesap numaraları (sadece numaralar)
-      const whatsappAccounts = [
-        "19402394544",
-        "16052159106"
-      ];
+      // Mobile menu toggle
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
       
-      // WhatsApp linki oluşturma fonksiyonu
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+      
+      // WhatsApp linki oluşturma
       function generateWhatsAppLink(phoneNumber) {
         const message = encodeURIComponent("Merhaba, online yarı zamanlı yüksek gelirli işe katılmakla ilgileniyorum!");
         return `https://wa.me/${phoneNumber}?text=${message}`;
       }
-      
-      // Sayfa yüklendiğinde rastgele bir hesap seç ve link oluştur
-      const randomAccount = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
-      const assignedWhatsAppLink = generateWhatsAppLink(randomAccount);
       
       // Form modalını aç
       function openFormModal() {
@@ -726,37 +841,98 @@
         successModal.classList.remove('active');
       }
       
+      // Exit intent modalını aç
+      function showExitIntentPopup() {
+        if (exitIntentShown || formSubmitted) return;
+        if (localStorage.getItem('exitIntentShown') === 'true') return;
+        
+        exitIntentShown = true;
+        localStorage.setItem('exitIntentShown', 'true');
+        exitIntentModal.classList.add('active');
+      }
+      
+      // Exit intent modalını kapat
+      function closeExitIntentModal() {
+        exitIntentModal.classList.remove('active');
+      }
+      
+      // Telefon numarası doğrulama
+      function validatePhoneNumber(phone) {
+        const cleaned = phone.replace(/\D/g, '');
+        return cleaned.length === 10 && cleaned.startsWith('5');
+      }
+      
+      // Yaş doğrulama
+      function validateAge(age) {
+        const ageNum = parseInt(age, 10);
+        return !isNaN(ageNum) && ageNum >= 18 && ageNum <= 65;
+      }
+      
+      // İsim doğrulama
+      function validateName(name) {
+        return name.trim().length >= 2;
+      }
+      
+      // Honeypot kontrolü
+      function checkHoneypot(formElement) {
+        const honeypot = formElement.querySelector('input[name="hp-email"]');
+        return honeypot.value === '';
+      }
+      
+      // Hata gösterimi
+      function showError(input, errorElement, message) {
+        input.classList.add('error');
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+      }
+      
+      // Hata temizleme
+      function clearError(input, errorElement) {
+        input.classList.remove('error');
+        errorElement.classList.remove('show');
+      }
+      
       // Form doğrulama ve gönderme işleme
-      function handleFormSubmit(e, formElement, statusElement) {
+      function handleFormSubmit(e, formElement, statusElement, submitButton) {
         e.preventDefault();
+        
+        // Honeypot kontrolü
+        if (!checkHoneypot(formElement)) {
+          statusElement.textContent = 'Lütfen formu tekrar gönderin.';
+          statusElement.className = 'form-status error';
+          return;
+        }
         
         // Önceki hata durumlarını temizle
         const inputs = formElement.querySelectorAll('input');
-        inputs.forEach(input => {
-          input.style.borderColor = '';
-        });
+        const errorElements = formElement.querySelectorAll('.error-text');
+        inputs.forEach(input => input.classList.remove('error'));
+        errorElements.forEach(el => el.classList.remove('show'));
         
         let isValid = true;
         
         // İsim doğrulama
         const nameInput = formElement.querySelector('input[name="name"]');
-        if (!nameInput.value.trim()) {
+        const nameError = formElement.querySelector('#name-error, #modal-name-error');
+        if (!validateName(nameInput.value)) {
           isValid = false;
-          nameInput.style.borderColor = '#ff8b8b';
+          showError(nameInput, nameError, 'Lütfen geçerli bir ad soyad girin (en az 2 karakter)');
         }
         
         // Telefon doğrulama
         const phoneInput = formElement.querySelector('input[name="phone"]');
-        if (!phoneInput.value.trim()) {
+        const phoneError = formElement.querySelector('#phone-error, #modal-phone-error');
+        if (!validatePhoneNumber(phoneInput.value)) {
           isValid = false;
-          phoneInput.style.borderColor = '#ff8b8b';
+          showError(phoneInput, phoneError, 'Lütfen 10 haneli geçerli bir telefon numarası girin (5xx xxx xx xx)');
         }
         
         // Yaş doğrulama
         const ageInput = formElement.querySelector('input[name="age"]');
-        if (!ageInput.value.trim()) {
+        const ageError = formElement.querySelector('#age-error, #modal-age-error');
+        if (!validateAge(ageInput.value)) {
           isValid = false;
-          ageInput.style.borderColor = '#ff8b8b';
+          showError(ageInput, ageError, 'Lütfen 18-65 arasında bir yaş girin');
         }
         
         // Şartları kabul doğrulama
@@ -769,27 +945,112 @@
         }
         
         if (!isValid) {
-          statusElement.textContent = 'Lütfen tüm zorunlu alanları doğru şekilde doldurun.';
+          statusElement.textContent = 'Lütfen tüm alanları doğru şekilde doldurun.';
           statusElement.className = 'form-status error';
           return;
         }
         
-        // Form doğrulama başarılı, başarı mesajını göster
-        openSuccessModal();
+        // Loading state
+        const btnText = submitButton.querySelector('.btn-text');
+        const btnLoading = submitButton.querySelector('.btn-loading');
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        submitButton.disabled = true;
         
-        // Eğer modal form ise, onu kapat
-        if (formElement === modalForm) {
-          closeFormModal();
-        }
+        // Form doğrulama başarılı, başarı mesajını göster
+        setTimeout(() => {
+          formSubmitted = true;
+          openSuccessModal();
+          
+          // Eğer modal form ise, onu kapat
+          if (formElement === modalForm) {
+            closeFormModal();
+          }
+          
+          // GA event gönder (async)
+          try {
+            gtag_report_conversion(assignedWhatsAppLink);
+          } catch (error) {
+            console.error('GA event gönderilemedi:', error);
+            // GA hata verse bile WhatsApp'a yönlendir
+            window.location.href = assignedWhatsAppLink;
+          }
+          
+          // Reset loading state
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+          submitButton.disabled = false;
+        }, 1000);
+      }
+      
+      // Real-time validation
+      function setupRealTimeValidation() {
+        // Name validation
+        document.querySelectorAll('input[name="name"]').forEach(input => {
+          input.addEventListener('input', function() {
+            const errorId = this.id === 'name' ? 'name-error' : 'modal-name-error';
+            const errorElement = document.getElementById(errorId);
+            clearError(this, errorElement);
+          });
+        });
+        
+        // Phone validation
+        document.querySelectorAll('input[name="phone"]').forEach(input => {
+          input.addEventListener('input', function() {
+            // Only allow numbers
+            this.value = this.value.replace(/\D/g, '');
+            const errorId = this.id === 'phone' ? 'phone-error' : 'modal-phone-error';
+            const errorElement = document.getElementById(errorId);
+            clearError(this, errorElement);
+          });
+        });
+        
+        // Age validation
+        document.querySelectorAll('input[name="age"]').forEach(input => {
+          input.addEventListener('input', function() {
+            // Only allow numbers
+            this.value = this.value.replace(/\D/g, '');
+            const errorId = this.id === 'age' ? 'age-error' : 'modal-age-error';
+            const errorElement = document.getElementById(errorId);
+            clearError(this, errorElement);
+          });
+        });
+      }
+      
+      // Exit intent detection
+      function setupExitIntentDetection() {
+        // Mouse leaving top of window
+        document.addEventListener('mouseleave', function(e) {
+          if (e.clientY < 0) {
+            showExitIntentPopup();
+          }
+        });
+        
+        // Before unload (closing tab/window)
+        window.addEventListener('beforeunload', function(e) {
+          if (!formSubmitted && !exitIntentShown) {
+            e.preventDefault();
+            e.returnValue = '';
+            showExitIntentPopup();
+            return '';
+          }
+        });
+        
+        // Back button handling
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function() {
+          showExitIntentPopup();
+          history.pushState(null, null, document.URL);
+        });
       }
       
       // Event listener'lar
       form.addEventListener('submit', function(e) {
-        handleFormSubmit(e, form, formStatus);
+        handleFormSubmit(e, form, formStatus, submitBtn);
       });
       
       modalForm.addEventListener('submit', function(e) {
-        handleFormSubmit(e, modalForm, modalFormStatus);
+        handleFormSubmit(e, modalForm, modalFormStatus, modalSubmitBtn);
       });
       
       openFormBtn.addEventListener('click', function(e) {
@@ -807,6 +1068,25 @@
       // Modal kapatma butonları
       modalCloseBtn.addEventListener('click', closeSuccessModal);
       formModalCloseBtn.addEventListener('click', closeFormModal);
+      exitModalCloseBtn.addEventListener('click', closeExitIntentModal);
+      
+      // Exit intent modal actions
+      continueFormBtn.addEventListener('click', function() {
+        closeExitIntentModal();
+        openFormModal();
+      });
+      
+      whatsappFirstBtn.addEventListener('click', function() {
+        closeExitIntentModal();
+        window.location.href = assignedWhatsAppLink;
+      });
+      
+      exitWebsiteBtn.addEventListener('click', function() {
+        closeExitIntentModal();
+        // Allow user to actually leave
+        window.removeEventListener('beforeunload', arguments.callee);
+        window.history.back();
+      });
       
       // Modal dışına tıklayarak kapatma
       successModal.addEventListener('click', function(e) {
@@ -821,10 +1101,16 @@
         }
       });
       
+      exitIntentModal.addEventListener('click', function(e) {
+        if (e.target === exitIntentModal) {
+          closeExitIntentModal();
+        }
+      });
+      
       // Başarı modalı Tamam butonu
       modalOkBtn.addEventListener('click', function() {
-        // Google olayını raporla ve WhatsApp'a yönlendir
-        gtag_report_conversion(assignedWhatsAppLink);
+        closeSuccessModal();
+        window.location.href = assignedWhatsAppLink;
       });
       
       // Yumuşak kaydırma ekle
@@ -868,6 +1154,10 @@
       document.querySelectorAll('.fade-in').forEach(el => {
         observer.observe(el);
       });
+      
+      // Setup functions
+      setupRealTimeValidation();
+      setupExitIntentDetection();
     });
   </script>
 </body>
