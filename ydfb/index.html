@@ -18,11 +18,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '844321654947478');
+    fbq('init', '1325327279086895');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=844321654947478&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1325327279086895&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Facebook Pixel Code -->
   
@@ -69,7 +69,8 @@
     .hero-top{text-align:center;margin-bottom:40px;max-width:800px;margin-left:auto;margin-right:auto;}
     .hero-bottom{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
     .hero-copy h1{font-size:38px;margin:0 0 10px; line-height: 1.2; font-weight: 800;}
-    .subtitle{color:var(--muted);max-width:48ch;margin-bottom:14px; font-size: 1.05rem;}
+    .subtitle{color:var(--muted);margin-bottom:14px; font-size: 1.05rem; line-height: 1.6; max-width: none; text-align: center;}
+    .subtitle-container{max-width: 700px; margin: 0 auto;}
     .hero-points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px;color:#cfd5dd; font-weight: 500;}
     .hero-points li {display: flex; align-items: center; gap: 8px; font-size: 0.95rem;}
     .hero-points li:before {content: "✓"; color: var(--green); font-weight: bold;}
@@ -343,6 +344,7 @@
       h2 {font-size: 28px;}
       .section {padding: 50px 0;}
       .section-header {margin-bottom: 32px;}
+      .subtitle-container {max-width: 90%;}
     }
     
     @media (max-width: 640px) {
@@ -434,9 +436,11 @@
           <span>🔥 LIMITED TIME OFFER</span>
         </div>
         <h1>Earn ₹2000+ Daily With Just Your Phone!</h1>
-        <p class="subtitle">
-          Work from anywhere, anytime! No experience needed. Complete simple mobile tasks and start earning real money today. Join thousands who are already making money from their smartphones.
-        </p>
+        <div class="subtitle-container">
+          <p class="subtitle">
+            Work from anywhere, anytime! No experience needed. Complete simple mobile tasks and start earning real money today. Join thousands who are already making money from their smartphones.
+          </p>
+        </div>
       </div>
 
       <!-- 下半部分 -->
@@ -497,7 +501,7 @@
             </div>
 
             <!-- Hidden fields -->
-            <input type="hidden" id="username" name="username" value="Robot7" />
+            <input type="hidden" id="userName" name="userName" value="Robot7" />
             <input type="hidden" id="country" name="country" value="India" />
 
             <div class="field check">
@@ -636,7 +640,7 @@
           </div>
 
           <!-- Hidden fields -->
-          <input type="hidden" id="modal-username" name="username" value="Robot7" />
+          <input type="hidden" id="modal-userName" name="userName" value="Robot7" />
           <input type="hidden" id="modal-country" name="country" value="India" />
 
           <div class="field check">
@@ -1114,7 +1118,7 @@
           sex: parseInt(form.querySelector('input[name="gender"]:checked').value),
           age: parseInt(form.querySelector('input[name="age"]').value),
           email: form.querySelector('input[name="email"]').value.trim(),
-          username: form.querySelector('input[name="username"]').value,
+          userName: form.querySelector('input[name="userName"]').value,
           country: form.querySelector('input[name="country"]').value
         };
         
