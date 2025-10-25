@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modèle de Contrat de Service | Justice Cyber France</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a0e17;
+            --secondary-dark: #131825;
+            --accent-gold: #D4AF37;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --accent-red: #e74c3c;
+            --text-light: #FFFFFF;
+            --text-gray: #b0b7c8;
+            --card-bg: #1a2030;
+            --gradient-primary: linear-gradient(135deg, #D4AF37 0%, #FF9933 100%);
+            --gradient-text: linear-gradient(135deg, #D4AF37 0%, #FF9933 100%);
+            --gradient-alert: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --pulse-shadow: 0 0 0 rgba(212, 175, 55, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 70px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--primary-dark);
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+            animation: none;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent-gold);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+        
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-dark);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+        
+        .logo span {
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 28px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .nav-cta {
+            margin-left: 30px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 14, 23, 0.85), rgba(10, 14, 23, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 30px 0 40px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--text-gray);
+        }
+
+        /* Content Section */
+        .content {
+            background-color: var(--secondary-dark);
+        }
+        
+        .agreement-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .agreement-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #3a4255;
+        }
+        
+        .agreement-header h2 {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+        
+        .agreement-header p {
+            color: var(--text-gray);
+        }
+        
+        .agreement-body {
+            margin-bottom: 40px;
+        }
+        
+        .agreement-section {
+            margin-bottom: 30px;
+        }
+        
+        .agreement-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #3a4255;
+        }
+        
+        .agreement-section p {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+        }
+        
+        .agreement-section ul, .agreement-section ol {
+            margin: 15px 0 15px 30px;
+            color: var(--text-gray);
+        }
+        
+        .agreement-section li {
+            margin-bottom: 10px;
+        }
+        
+        .info-box {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--accent-gold);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .info-box p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+        
+        .warning-box {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .warning-box p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+        
+        .signature-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #3a4255;
+        }
+        
+        .signature-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .signature-field {
+            margin-bottom: 30px;
+        }
+        
+        .signature-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #3a4255;
+            padding: 15px 0;
+            min-height: 50px;
+        }
+        
+        .signature-note {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #3a4255;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .disclaimer {
+            background-color: rgba(255, 153, 51, 0.1);
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .signature-fields {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .agreement-container {
+                padding: 25px 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Justice<span>Cyber</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#process">Notre Processus</a></li>
+                        <li><a href="index.html#results">Réussites</a></li>
+                    </ul>
+                </nav>
+                <button class="btn btn-primary nav-cta" onclick="window.location.href='index.html#contact'">J'AI BESOIN D'AIDE</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contrat de <span class="gradient-text">Service</span></h1>
+                <p>Modèle d'accord professionnel pour les services de récupération après fraude avec des conditions générales complètes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="container">
+            <div class="agreement-container">
+                <div class="agreement-header">
+                    <h2>CONTRAT DE SERVICES DE RÉCUPÉRATION APRÈS FRAUDE</h2>
+                    <p>Le présent contrat est conclu et entre en vigueur à compter du <span id="agreementDate">[Date]</span></p>
+                </div>
+                
+                <div class="agreement-body">
+                    <div class="agreement-section">
+                        <h3>1. PARTIES</h3>
+                        <p><strong>Prestataire de Services :</strong> Justice Cyber France (ci-après dénommé "Prestataire")</p>
+                        <p><strong>Adresse :</strong> [Adresse du Prestataire]</p>
+                        <p><strong>Email :</strong> juridique@justicecyberfrance.fr</p>
+                        
+                        <p><strong>Client :</strong> <span id="clientName">[Nom Complet du Client]</span> (ci-après dénommé "Client")</p>
+                        <p><strong>Adresse :</strong> <span id="clientAddress">[Adresse du Client]</span></p>
+                        <p><strong>Email :</strong> <span id="clientEmail">[Email du Client]</span></p>
+                        <p><strong>Téléphone :</strong> <span id="clientPhone">[Téléphone du Client]</span></p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>2. SERVICES À FOURNIR</h3>
+                        <p>Le Prestataire s'engage à fournir les services suivants au Client :</p>
+                        <ul>
+                            <li>Évaluation complète du cas de fraude</li>
+                            <li>Cyber-enquête et collecte de preuves</li>
+                            <li>Coordination avec les institutions financières et autorités compétentes</li>
+                            <li>Consultation juridique et développement de stratégie</li>
+                            <li>Efforts de récupération incluant la communication avec les parties impliquées</li>
+                            <li>Mises à jour régulières sur l'avancement du cas</li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <p><strong>Détails du Cas :</strong> Le présent contrat concerne le cas de fraude impliquant un montant estimé de <span id="caseAmount">[Montant]</span> perdu par <span id="fraudType">[Type de Fraude]</span>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>3. RESPONSABILITÉS DU CLIENT</h3>
+                        <p>Le Client s'engage à :</p>
+                        <ul>
+                            <li>Fournir des informations complètes et exactes concernant l'incident de fraude</li>
+                            <li>Soumettre tous les documents et preuves pertinents rapidement</li>
+                            <li>Coopérer avec le Prestataire et fournir les autorisations nécessaires</li>
+                            <li>Prendre des décisions opportunes concernant la stratégie du cas lorsque demandé</li>
+                            <li>Informer le Prestataire de tout changement dans les coordonnées</li>
+                            <li>Payer les frais comme indiqué dans la Section 4 du présent contrat</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>4. STRUCTURE DES FRAIS ET CONDITIONS DE PAIEMENT</h3>
+                        <p><strong>4.1 Frais d'Engagement :</strong> Le Client devra payer des frais d'engagement non remboursables de 500 € lors de la signature du présent contrat pour initier les services.</p>
+                        
+                        <p><strong>4.2 Frais de Succès :</strong> Le Prestataire recevra des frais de succès de <span id="successPercentage">[15-25%]</span> du montant brut récupéré pour le compte du Client.</p>
+                        
+                        <p><strong>4.3 Garantie "Rien à Payer si Pas de Récupération" :</strong> Si aucun fonds n'est récupéré, le Client ne devra aucun frais de succès. Les frais d'engagement restent non remboursables en compensation du travail initial effectué.</p>
+                        
+                        <p><strong>4.4 Conditions de Paiement :</strong> Les frais de succès sont dus dans les 7 jours suivant la réception par le Client des fonds récupérés. Les retards de paiement peuvent entraîner des frais d'intérêt de 1,5% par mois.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>5. DURÉE ET RÉSILIATION</h3>
+                        <p><strong>5.1 Durée :</strong> Le présent contrat prend effet à la date d'entrée en vigueur et continue jusqu'à la première des éventualités suivantes : (a) récupération réussie des fonds ; (b) accord mutuel de résiliation ; ou (c) 12 mois à compter de la date d'entrée en vigueur.</p>
+                        
+                        <p><strong>5.2 Résiliation par le Client :</strong> Le Client peut résilier le présent contrat avec un préavis écrit de 30 jours. À la résiliation, le Client devra payer pour tous les services rendus jusqu'à la date de résiliation.</p>
+                        
+                        <p><strong>5.3 Résiliation par le Prestataire :</strong> Le Prestataire peut résilier le présent contrat si le Client ne remplit pas ses responsabilités, fournit de fausses informations ou ne respecte pas les paiements requis.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>6. CONFIDENTIALITÉ</h3>
+                        <p>Les deux parties conviennent de maintenir la confidentialité de toutes les informations partagées au cours de cet engagement. Le Prestataire ne divulguera pas l'identité du Client ni les détails du cas sans autorisation explicite, sauf si la loi l'exige ou si cela est nécessaire pour les efforts de récupération.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>7. AVERTISSEMENT ET LIMITATION DE RESPONSABILITÉ</h3>
+                        
+                        <div class="warning-box">
+                            <p><strong>7.1 Aucune Garantie de Résultats :</strong> Le Prestataire ne donne aucune garantie, assurance ou représentation concernant le résultat des efforts de récupération. Bien que le Prestataire emploiera ses meilleurs efforts, le succès dépend de nombreux facteurs échappant au contrôle du Prestataire.</p>
+                        </div>
+                        
+                        <p><strong>7.2 Limitation de Responsabilité :</strong> La responsabilité totale du Prestataire en vertu du présent contrat, quelle que soit la forme de l'action, ne dépassera pas le total des frais payés par le Client au Prestataire en vertu du présent contrat.</p>
+                        
+                        <p><strong>7.3 Aucun Dommage Consécutif :</strong> En aucun cas, le Prestataire ne sera responsable des dommages indirects, spéciaux, accessoires, consécutifs ou punitifs, y compris, mais sans s'y limiter, les pertes de profits, la détresse émotionnelle ou l'interruption d'activité.</p>
+                        
+                        <p><strong>7.4 Actions de Tiers :</strong> Le Prestataire ne sera pas responsable des actions ou omissions de tiers, y compris les institutions financières, les forces de l'ordre ou les professionnels juridiques impliqués dans le processus de récupération.</p>
+                        
+                        <p><strong>7.5 Vérification par le Client :</strong> Le Client reconnaît que le Prestataire s'appuie sur les informations fournies par le Client et ne sera pas responsable des inexactitudes dans ces informations.</p>
+                        
+                        <p><strong>7.6 Force Majeure :</strong> Le Prestataire ne sera pas responsable des retards ou des échecs de performance résultant de causes échappant à son contrôle raisonnable.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>8. INDEMNISATION</h3>
+                        <p>Le Client accepte d'indemniser et de dégager de toute responsabilité le Prestataire, ses employés et ses affiliés contre toute réclamation, dommage, perte ou dépense découlant : (a) de la violation du présent contrat par le Client ; (b) d'informations inexactes fournies par le Client ; ou (c) du non-respect par le Client des lois applicables.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>9. DROIT APPLICABLE ET RÈGLEMENT DES LITIGES</h3>
+                        <p><strong>9.1 Droit Applicable :</strong> Le présent contrat sera régi par et interprété conformément aux lois de la France.</p>
+                        
+                        <p><strong>9.2 Règlement des Litiges :</strong> Tout litige découlant du présent contrat sera d'abord tenté d'être résolu par une négociation de bonne foi. En cas d'échec, les parties conviennent d'un arbitrage contraignant à Paris, France.</p>
+                    </div>
+                    
+                    <div class="agreement-section">
+                        <h3>10. DIVERS</h3>
+                        <p><strong>10.1 Intégralité du Contrat :</strong> Le présent document constitue l'intégralité de l'accord entre les parties et remplace toutes les discussions, négociations et accords antérieurs.</p>
+                        
+                        <p><strong>10.2 Modification :</strong> Le présent contrat ne peut être modifié que par écrit signé par les deux parties.</p>
+                        
+                        <p><strong>10.3 Divisibilité :</strong> Si une disposition du présent contrat est jugée invalide ou inapplicable, les dispositions restantes resteront en vigueur.</p>
+                        
+                        <p><strong>10.4 Notifications :</strong> Toutes les notifications requises en vertu du présent contrat doivent être écrites et envoyées aux adresses spécifiées dans la Section 1.</p>
+                    </div>
+                    
+                    <div class="signature-section">
+                        <h3>ACCEPTATION ET SIGNATURES</h3>
+                        <p>Les parties reconnaissent par les présentes avoir lu, compris et accepté d'être liées par les termes et conditions du présent contrat.</p>
+                        
+                        <div class="signature-fields">
+                            <div class="signature-field">
+                                <label for="providerSignature">POUR JUSTICE CYBER FRANCE :</label>
+                                <div class="signature-line" id="providerSignature"></div>
+                                <div class="signature-note">Signature Autorisée</div>
+                                
+                                <div class="signature-line" id="providerName"></div>
+                                <div class="signature-note">Nom en Caractères d'Imprimerie</div>
+                                
+                                <div class="signature-line" id="providerTitle"></div>
+                                <div class="signature-note">Titre</div>
+                                
+                                <div class="signature-line" id="providerDate"></div>
+                                <div class="signature-note">Date</div>
+                            </div>
+                            
+                            <div class="signature-field">
+                                <label for="clientSignature">POUR LE CLIENT :</label>
+                                <div class="signature-line" id="clientSignature"></div>
+                                <div class="signature-note">Signature</div>
+                                
+                                <div class="signature-line" id="clientPrintedName"></div>
+                                <div class="signature-note">Nom en Caractères d'Imprimerie</div>
+                                
+                                <div class="signature-line" id="clientDate"></div>
+                                <div class="signature-note">Date</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="printAgreement">
+                        <i class="fas fa-print"></i> IMPRIMER LE CONTRAT
+                    </button>
+                    <button class="btn btn-secondary" id="downloadAgreement">
+                        <i class="fas fa-download"></i> TÉLÉCHARGER EN PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Justice Cyber France</h3>
+                    <p>Service français de premier plan pour la récupération après cyberfraude, combinant expertise juridique et cyber-enquête de pointe pour aider les victimes à retrouver leur sécurité financière.</p>
+                    <p><i class="fas fa-envelope"></i> aide@justicecyberfrance.fr</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="index.html#services">Nos Services</a>
+                    <a href="index.html#process">Notre Processus</a>
+                    <a href="index.html#results">Réussites</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Légal</h3>
+                    <a href="privacy.html">Politique de Confidentialité</a>
+                    <a href="userterms.html">Conditions d'Utilisation</a>
+                    <a href="service.html" style="color: var(--accent-gold);">Contrat de Service</a>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Avertissement :</strong> Ce modèle de contrat de service est fourni à titre de référence uniquement et ne constitue pas un conseil juridique. Nous recommandons de consulter un professionnel juridique avant d'utiliser ce modèle à des fins commerciales réelles.</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Justice Cyber France. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current date
+        document.getElementById('agreementDate').textContent = new Date().toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Print agreement functionality
+        document.getElementById('printAgreement').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Download as PDF functionality (simulated)
+        document.getElementById('downloadAgreement').addEventListener('click', function() {
+            alert('Dans une implémentation réelle, cela générerait une version PDF du contrat pour téléchargement.');
+            // Dans une implémentation réelle, vous utiliseriez une bibliothèque comme jsPDF ou html2pdf.js
+        });
+        
+        // Sample data population (in a real app, this would come from a form)
+        document.getElementById('clientName').textContent = 'Pierre Martin';
+        document.getElementById('clientAddress').textContent = '123 Avenue des Champs-Élysées, 75008 Paris, France';
+        document.getElementById('clientEmail').textContent = 'pierre.martin@example.com';
+        document.getElementById('clientPhone').textContent = '+33 6 12 34 56 78';
+        document.getElementById('caseAmount').textContent = '25 000 €';
+        document.getElementById('fraudType').textContent = 'arnaque aux investissements en ligne';
+        document.getElementById('successPercentage').textContent = '20%';
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
