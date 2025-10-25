@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions d'Utilisation | Justice Cyber France | Services Professionnels de Récupération après Fraude en Ligne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a0e17;
+            --secondary-dark: #131825;
+            --accent-gold: #D4AF37;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --accent-red: #e74c3c;
+            --text-light: #FFFFFF;
+            --text-gray: #b0b7c8;
+            --card-bg: #1a2030;
+            --gradient-primary: linear-gradient(135deg, #D4AF37 0%, #FF9933 100%);
+            --gradient-text: linear-gradient(135deg, #D4AF37 0%, #FF9933 100%);
+            --gradient-alert: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --pulse-shadow: 0 0 0 rgba(212, 175, 55, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 70px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--primary-dark);
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+            animation: none;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+        
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-dark);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+        
+        .logo span {
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 28px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .nav-cta {
+            margin-left: 30px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 14, 23, 0.85), rgba(10, 14, 23, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 30px 0 40px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--text-gray);
+        }
+
+        /* Content Section */
+        .content {
+            background-color: var(--secondary-dark);
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .toc-sidebar {
+            flex: 0 0 300px;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .toc-sidebar h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3a4255;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 12px;
+        }
+        
+        .toc-list a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .toc-list a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .toc-list a.active {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        
+        .policy-content {
+            flex: 1;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+        
+        .policy-section h2 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3a4255;
+        }
+        
+        .policy-section h3 {
+            color: var(--text-light);
+            margin: 25px 0 15px;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+        }
+        
+        .policy-section ul, .policy-section ol {
+            margin: 15px 0 15px 30px;
+            color: var(--text-gray);
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+        }
+        
+        .info-box {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--accent-gold);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .info-box p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+        
+        .success-box {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .success-box p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+        
+        .warning-box {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .warning-box p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+        
+        .fee-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .fee-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            border-top: 4px solid var(--accent-gold);
+        }
+        
+        .fee-card h4 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .fee-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+        
+        .fee-description {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: var(--primary-dark);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-gray);
+        }
+        
+        .contact-item i {
+            color: var(--accent-gold);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-dark);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #3a4255;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .disclaimer {
+            background-color: rgba(255, 153, 51, 0.1);
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .toc-sidebar {
+                position: static;
+                flex: 1;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .fee-structure {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .policy-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Justice<span>Cyber</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#process">Notre Processus</a></li>
+                        <li><a href="index.html#results">Réussites</a></li>
+                    </ul>
+                </nav>
+                <button class="btn btn-primary nav-cta" onclick="window.location.href='index.html#contact'">J'AI BESOIN D'AIDE</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Conditions d'<span class="gradient-text">Utilisation</span></h1>
+                <p>Conditions transparentes et structure tarifaire centrée sur le client pour nos services de récupération après fraude.</p>
+                <div class="guarantee-badge">Garantie Rien à Payer si Pas de Récupération</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="toc-sidebar">
+                    <h3>Table des Matières</h3>
+                    <ul class="toc-list">
+                        <li><a href="#introduction" class="active">Introduction</a></li>
+                        <li><a href="#services-description">Description des Services</a></li>
+                        <li><a href="#client-responsibilities">Responsabilités du Client</a></li>
+                        <li><a href="#fee-structure">Structure Tarifaire</a></li>
+                        <li><a href="#payment-terms">Conditions de Paiement</a></li>
+                        <li><a href="#refund-policy">Politique de Remboursement</a></li>
+                        <li><a href="#success-fee">Modèle de Frais de Succès</a></li>
+                        <li><a href="#confidentiality">Confidentialité</a></li>
+                        <li><a href="#limitations">Limitations</a></li>
+                        <li><a href="#termination">Résiliation</a></li>
+                        <li><a href="#dispute-resolution">Règlement des Litiges</a></li>
+                        <li><a href="#contact">Contactez-Nous</a></li>
+                    </ul>
+                </div>
+                
+                <div class="policy-content">
+                    <div class="policy-section" id="introduction">
+                        <h2>1. Introduction</h2>
+                        <p>Bienvenue chez Justice Cyber France. Ces Conditions d'Utilisation régissent votre utilisation de nos services de récupération après fraude. En engageant nos services, vous acceptez d'être lié par ces conditions et notre Politique de Confidentialité.</p>
+                        <p>Nous nous spécialisons dans l'assistance aux victimes de fraude en ligne par le biais de consultations juridiques, de cyber-enquêtes et d'efforts de récupération. Notre approche centrée sur le client garantit la transparence et l'équité dans tous nos engagements.</p>
+                        
+                        <div class="info-box">
+                            <p><strong>Note :</strong> Ces conditions constituent un accord juridiquement contraignant entre vous et Justice Cyber France. Veuillez les lire attentivement avant d'utiliser nos services.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="services-description">
+                        <h2>2. Description des Services</h2>
+                        <p>Justice Cyber France fournit les services suivants aux victimes de fraude en ligne :</p>
+                        
+                        <ul>
+                            <li><strong>Évaluation du Cas :</strong> Évaluation initiale gratuite de votre cas de fraude</li>
+                            <li><strong>Consultation Juridique :</strong> Conseils professionnels sur les options de récupération</li>
+                            <li><strong>Cyber-Enquête :</strong> Traçage et documentation des preuves numériques</li>
+                            <li><strong>Efforts de Récupération :</strong> Coordination avec les institutions financières et autorités</li>
+                            <li><strong>Représentation Juridique :</strong> Collaboration avec notre réseau de professionnels juridiques</li>
+                            <li><strong>Support Continu :</strong> Mises à jour régulières et accompagnement tout au long du processus</li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <p><strong>Important :</strong> Nous ne sommes pas un cabinet d'avocats mais travaillons avec des avocats certifiés partout en France. Nos services complètent les procédures juridiques mais ne remplacent pas la représentation légale formelle lorsque cela est requis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="client-responsibilities">
+                        <h2>3. Responsabilités du Client</h2>
+                        <p>Pour faciliter une prestation de services efficace, les clients sont responsables de :</p>
+                        
+                        <ul>
+                            <li>Fournir des informations exactes et complètes sur l'incident de fraude</li>
+                            <li>Soumettre tous les documents et preuves pertinents rapidement</li>
+                            <li>Coopérer avec notre équipe et fournir les autorisations nécessaires</li>
+                            <li>Prendre des décisions opportunes concernant la stratégie du cas</li>
+                            <li>Payer les frais applicables comme indiqué dans ces conditions</li>
+                            <li>Nous informer de tout changement dans les coordonnées</li>
+                        </ul>
+                        
+                        <p>Le non-respect de ces responsabilités peut affecter notre capacité à traiter efficacement votre cas et pourrait entraîner la résiliation des services.</p>
+                    </div>
+                    
+                    <div class="policy-section" id="fee-structure">
+                        <h2>4. Structure Tarifaire</h2>
+                        <p>Notre structure tarifaire est conçue pour être transparente et favorable au client, avec une tarification basée sur le succès :</p>
+                        
+                        <div class="fee-structure">
+                            <div class="fee-card">
+                                <h4>Consultation Initiale</h4>
+                                <div class="fee-amount">GRATUIT</div>
+                                <p class="fee-description">Évaluation complète du cas et analyse de récupération</p>
+                            </div>
+                            <div class="fee-card">
+                                <h4>Frais d'Engagement</h4>
+                                <div class="fee-amount">500 €</div>
+                                <p class="fee-description">Frais uniques pour initier le processus de récupération (remboursable si pas de récupération)</p>
+                            </div>
+                            <div class="fee-card">
+                                <h4>Frais de Succès</h4>
+                                <div class="fee-amount">15-25%</div>
+                                <p class="fee-description">Pourcentage du montant récupéré, varie selon la complexité du cas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="success-box">
+                            <p><strong>Garantie Rien à Payer si Pas de Récupération :</strong> Si nous ne parvenons pas à récupérer des fonds pour vous, vous ne devrez aucun frais de succès. Les frais d'engagement seront intégralement remboursés dans ces cas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="payment-terms">
+                        <h2>5. Conditions de Paiement</h2>
+                        <p>Tous les paiements sont régis par les conditions suivantes :</p>
+                        
+                        <ul>
+                            <li><strong>Frais d'Engagement :</strong> Payables lors de la signature du contrat de service pour initier le travail sur votre cas</li>
+                            <li><strong>Frais de Succès :</strong> Payables uniquement en cas de récupération réussie de fonds, calculés en pourcentage du montant récupéré</li>
+                            <li><strong>Méthodes de Paiement :</strong> Nous acceptons les virements bancaires, les paiements numériques et autres méthodes de paiement électroniques</li>
+                            <li><strong>Facturation :</strong> Factures détaillées fournies pour toutes les transactions</li>
+                            <li><strong>Taxes :</strong> Toutes les taxes applicables sont incluses dans les frais indiqués</li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <p><strong>Transparence :</strong> Le pourcentage exact des frais de succès sera clairement indiqué dans votre contrat de service avant tout début de travail, sans frais cachés.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="refund-policy">
+                        <h2>6. Politique de Remboursement</h2>
+                        <p>Nous soutenons nos services avec une politique de remboursement complète :</p>
+                        
+                        <h3>Remboursement des Frais d'Engagement</h3>
+                        <p>Les frais d'engagement de 500 € sont intégralement remboursables dans les conditions suivantes :</p>
+                        <ul>
+                            <li><strong>Aucune Récupération :</strong> Remboursement intégral si nous ne parvenons pas à récupérer des fonds</li>
+                            <li><strong>Retrait du Cas :</strong> Remboursement au prorata si vous vous retirez avant qu'un travail significatif n'ait été effectué</li>
+                            <li><strong>Défaillance du Service :</strong> Remboursement intégral si nous ne fournissons pas les services convenus</li>
+                        </ul>
+                        
+                        <h3>Processus de Remboursement</h3>
+                        <ul>
+                            <li>Les demandes de remboursement doivent être soumises par écrit</li>
+                            <li>Les remboursements sont traités dans les 7-10 jours ouvrables</li>
+                            <li>La méthode de paiement d'origine sera utilisée pour les remboursements</li>
+                            <li>Des frais administratifs peuvent s'appliquer pour une résiliation anticipée après un travail significatif</li>
+                        </ul>
+                        
+                        <div class="success-box">
+                            <p><strong>Protection du Client :</strong> Notre politique de remboursement garantit que vous ne payez jamais pour des tentatives de récupération infructueuses. Nous ne réussissons que lorsque vous réussissez.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="success-fee">
+                        <h2>7. Modèle de Frais de Succès</h2>
+                        <p>Notre modèle de frais basé sur le succès aligne nos intérêts avec les vôtres :</p>
+                        
+                        <h3>Calcul des Frais</h3>
+                        <p>Les frais de succès sont calculés comme suit :</p>
+                        <ul>
+                            <li><strong>Cas Standards :</strong> 20% du montant récupéré</li>
+                            <li><strong>Cas Complexes :</strong> 25% du montant récupéré (impliquant multiples juridictions, arnaques sophistiquées)</li>
+                            <li><strong>Cas Simples :</strong> 15% du montant récupéré (récupération directe avec preuves claires)</li>
+                        </ul>
+                        
+                        <h3>Ce qui Constitue une "Récupération"</h3>
+                        <p>La récupération est définie comme :</p>
+                        <ul>
+                            <li>Fonds retournés avec succès sur votre compte</li>
+                            <li>Virements bancaires initiés vers votre compte</li>
+                            <li>Paiements de restitution ordonnés par le tribunal</li>
+                            <li>Paiements de réclamation d'assurance facilités par nos efforts</li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <p><strong>Note :</strong> Le pourcentage spécifique des frais de succès pour votre cas sera clairement défini dans votre contrat de service en fonction de la complexité du cas et de la difficulté estimée de récupération.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="confidentiality">
+                        <h2>8. Confidentialité</h2>
+                        <p>Nous maintenons une confidentialité stricte concernant toutes les informations client :</p>
+                        
+                        <ul>
+                            <li>Tous les détails du cas et informations personnelles sont gardés confidentiels</li>
+                            <li>Nous ne divulguons pas les identités des clients sans autorisation explicite</li>
+                            <li>Les données sont stockées en toute sécurité avec cryptage et contrôles d'accès</li>
+                            <li>Les informations sont partagées uniquement avec les parties nécessaires impliquées dans les efforts de récupération</li>
+                            <li>Nous nous conformons à toutes les lois applicables sur la protection des données</li>
+                        </ul>
+                        
+                        <p>Les obligations de confidentialité survivent à la résiliation de nos services.</p>
+                    </div>
+                    
+                    <div class="policy-section" id="limitations">
+                        <h2>9. Limitations</h2>
+                        <p>Limitations importantes de nos services :</p>
+                        
+                        <ul>
+                            <li><strong>Aucune Garantie :</strong> Bien que nous employions nos meilleurs efforts, nous ne pouvons garantir des résultats spécifiques</li>
+                            <li><strong>Spécificité du Cas :</strong> Les résultats varient selon les circonstances individuelles du cas</li>
+                            <li><strong>Limites Temporelles :</strong> Le succès de la récupération peut être affecté par les retards dans le signalement de la fraude</li>
+                            <li><strong>Limites Juridictionnelles :</strong> Les cas internationaux peuvent avoir des complexités supplémentaires</li>
+                            <li><strong>Conseil Juridique :</strong> Notre consultation complète mais ne remplace pas un conseil juridique formel</li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <p><strong>Avertissement :</strong> Les résultats passés ne sont pas indicatifs des résultats futurs. Chaque cas de fraude a des caractéristiques uniques qui affectent le potentiel de récupération.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-section" id="termination">
+                        <h2>10. Résiliation</h2>
+                        <p>Chaque partie peut résilier les services dans ces conditions :</p>
+                        
+                        <h3>Résiliation Initiée par le Client</h3>
+                        <ul>
+                            <li>Préavis écrit requis</li>
+                            <li>Frais payables pour les services rendus jusqu'à la date de résiliation</li>
+                            <li>Remboursement de la partie inutilisée des frais d'engagement selon la politique de remboursement</li>
+                        </ul>
+                        
+                        <h3>Résiliation Initiée par la Société</h3>
+                        <ul>
+                            <li>Peut survenir pour non-paiement, non-coopération ou fausse déclaration</li>
+                            <li>Préavis écrit avec période de correction de 15 jours pour les problèmes réparables</li>
+                            <li>Remboursement intégral des frais d'engagement si la résiliation n'est pas due à une faute du client</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-section" id="dispute-resolution">
+                        <h2>11. Règlement des Litiges</h2>
+                        <p>En cas de litiges, nous suivons ce processus de résolution :</p>
+                        
+                        <ol>
+                            <li><strong>Négociation Directe :</strong> Les parties tentent de résoudre les problèmes directement</li>
+                            <li><strong>Médiation :</strong> Si la négociation directe échoue, les parties peuvent poursuivre la médiation</li>
+                            <li><strong>Arbitrage :</strong> Arbitrage contraignant comme méthode de résolution finale</li>
+                            <li><strong>Droit Applicable :</strong> Le droit français régit ces conditions et tout litige</li>
+                            <li><strong>Juridiction :</strong> Les tribunaux de Paris ont une juridiction exclusive</li>
+                        </ol>
+                        
+                        <p>Nous nous engageons à une résolution juste et rapide de toute préoccupation concernant nos services.</p>
+                    </div>
+                    
+                    <div class="policy-section" id="contact">
+                        <h2>12. Contactez-Nous</h2>
+                        <p>Pour des questions sur ces Conditions d'Utilisation ou notre structure tarifaire, veuillez nous contacter :</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>aide@justicecyberfrance.fr</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+33 X XX XX XX XX</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Justice Cyber France, Division Juridique, France</span>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 20px;">Pour les demandes de facturation ou de remboursement, veuillez envoyer un email à : facturation@justicecyberfrance.fr</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <p><strong>Dernière Mise à Jour :</strong> 1er Janvier 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Justice Cyber France</h3>
+                    <p>Service français de premier plan pour la récupération après cyberfraude, combinant expertise juridique et cyber-enquête de pointe pour aider les victimes à retrouver leur sécurité financière.</p>
+                    <p><i class="fas fa-envelope"></i> aide@justicecyberfrance.fr</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="index.html#services">Nos Services</a>
+                    <a href="index.html#process">Notre Processus</a>
+                    <a href="index.html#results">Réussites</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Légal</h3>
+                    <a href="privacy.html">Politique de Confidentialité</a>
+                    <a href="userterms.html" style="color: var(--accent-gold);">Conditions d'Utilisation</a>
+                    <a href="service.html">Contrat de Service</a>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Avertissement :</strong> Justice Cyber France fournit des consultations juridiques et une assistance à la récupération de fonds. Tous les cas sont uniques et les résultats ne peuvent être garantis. Les frais ne sont applicables qu'en cas de récupération réussie selon un accord signé. Nous ne sommes pas un cabinet d'avocats mais travaillons avec des avocats certifiés partout en France. Les résultats passés ne sont pas indicatifs des résultats futurs.</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Justice Cyber France. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Table of Contents highlighting
+        const sections = document.querySelectorAll('.policy-section');
+        const navLinks = document.querySelectorAll('.toc-list a');
+        
+        function highlightNavLink() {
+            let index = sections.length;
+            
+            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+            
+            navLinks.forEach((link) => link.classList.remove('active'));
+            navLinks[index].classList.add('active');
+        }
+        
+        window.addEventListener('scroll', highlightNavLink);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        nav.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
