@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice Cyber France | Récupérez Votre Argent après une Arnaque en Ligne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '123456789');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=123456789&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+    <script>
+        // WhatsApp account array - replace with actual WhatsApp numbers (without + or spaces)
+        const whatsappAccounts = [
+            "33695658685",
+            "33769917789",
+            "33765635736"
+        ];
+        
+        // Function to initialize WhatsApp URL
+        function initWhatsappUrl() {
+            // Select a random WhatsApp account from the array
+            const randomIndex = Math.floor(Math.random() * whatsappAccounts.length);
+            const selectedWhatsappAccount = whatsappAccounts[randomIndex];
+            
+            // Predefined message in French
+            const message = encodeURIComponent("Bonjour, je viens de voir votre site et je pense être victime d'une arnaque. Pouvez-vous m'aider à récupérer mon argent ?");
+            
+            // Create WhatsApp URL with pre-filled message
+            return `https://wa.me/${selectedWhatsappAccount}?text=${message}`;
+        }
+        
+        // Function to track Facebook event and redirect to WhatsApp
+        function trackAndRedirect(event) {
+            // Prevent default behavior if it's a button/link
+            if (event) {
+                event.preventDefault();
+            }
+            
+            // Track Facebook event
+            try {
+                fbq('track', 'ClickButton', {
+                    value: 8.0,
+                    currency: 'USD',
+                    transaction_id: 'whatsapp_' + Date.now()
+                });
+                
+                console.log('Facebook event sent successfully');
+            } catch (error) {
+                console.error('Error sending Facebook event:', error);
+                // Continue with redirect even if tracking fails
+            }
+            
+            // Get WhatsApp URL
+            const whatsappUrl = initWhatsappUrl();
+            
+            // Redirect to WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Optional: Show a confirmation message
+            showRedirectConfirmation();
+            
+            return false;
+        }
+        
+        // Show a brief confirmation message
+        function showRedirectConfirmation() {
+            const confirmation = document.createElement('div');
+            confirmation.innerHTML = '<i class="fas fa-check-circle"></i> Redirection vers WhatsApp...';
+            confirmation.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #25D366;
+                color: white;
+                padding: 12px 20px;
+                border-radius: 6px;
+                z-index: 10000;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            `;
+            document.body.appendChild(confirmation);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (document.body.contains(confirmation)) {
+                    document.body.removeChild(confirmation);
+                }
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Jus<span>tice</span></div>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Notre Processus</a></li>
+                        <li><a href="#results">Réussites</a></li>
+                    </ul>
+                </nav>
+                <button class="btn btn-primary nav-cta cta-button" id="openModalBtn">
+                    <i class="fab fa-whatsapp"></i> PARLER À UN EXPERT
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-top">
+                <div class="urgency-badge"><i class="fas fa-clock"></i> URGENT : Les premières 72h sont cruciales pour récupérer votre argent</div>
+                <div class="pre-headline">Arrêtez de perdre votre argent. Commencez à le récupérer.</div>
+                <h1>Victime d'une <span class="alert-text">Arnaque en Ligne en France ?</span> Nos Experts Français Vous Aident à Récupérer Votre Argent</h1>
+                <button class="btn btn-whatsapp mega-cta cta-button" id="heroCtaBtn">
+                    <i class="fab fa-whatsapp"></i> EXPERT FRANÇAIS - CONSULTATION GRATUITE
+                </button>
+                <p style="margin-top: 15px; color: var(--text-gray); font-size: 0.9rem;">
+                    <i class="fas fa-lock"></i> Conversation sécurisée et confidentielle
+                </p>  
+                <p>Ne laissez pas les escrocs profiter de votre argent. Notre équipe d'experts en cyber-récupération a déjà aidé plus de 3,000 Français à récupérer leurs fonds. Contactez-nous maintenant pour une consultation gratuite.</p>
+                <div class="trust-indicators">
+                    <div class="trust-indicator">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Évaluation Gratuite</h4>
+                        <p>Analyse immédiate de votre cas</p>
+                    </div>
+                    <div class="trust-indicator">
+                        <i class="fas fa-euro-sign"></i>
+                        <h4>Récupération Garantie</h4>
+                        <p>Payez uniquement si nous réussissons</p>
+                    </div>
+                    <div class="trust-indicator">
+                        <i class="fas fa-clock"></i>
+                        <h4>Action Immédiate</h4>
+                        <p>Intervention sous 24h</p>
+                    </div>
+                </div>
+                
+                <div class="french-trust-elements">
+                    <h4><i class="fas fa-star"></i> Service 100% Français - Conforme au Droit Français</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: center;">
+                        <div>
+                            <i class="fas fa-gavel" style="color: var(--accent-blue);"></i>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Conforme DGCCRF</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-shield-alt" style="color: var(--accent-green);"></i>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Protection CNIL</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-balance-scale" style="color: var(--accent-gold);"></i>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Procédures Légales Françaises</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-bottom">
+                <div class="hero-left">
+                    <h3 style="color: var(--accent-red); margin-bottom: 15px;"><i class="fas fa-exclamation-triangle"></i> Comment distinguer une vraie aide d'une nouvelle arnaque ?</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;">Les vrais professionnels de la récupération :</p>
+                    
+                    <div style="text-align: left; margin-bottom: 25px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i>
+                            <span><strong>Ne demandent jamais de paiement d'avance</strong></span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i>
+                            <span><strong>Fournissent une évaluation honnête de vos chances</strong></span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i>
+                            <span><strong>Expliquent clairement leur processus</strong></span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i>
+                            <span><strong>Respectent votre confidentialité</strong></span>
+                        </div>
+                    </div>
+                    
+                    <p style="color: var(--accent-gold); font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-star"></i> Nous respectons tous ces principes. Discutons de votre cas sans engagement.
+                    </p>
+                    
+                    <button class="btn btn-whatsapp cta-button" style="width: 100%;" id="visualCtaBtn">
+                        <i class="fab fa-whatsapp"></i> VÉRIFIER LA CRÉDIBILITÉ DE VOTRE CAS
+                    </button>
+                </div>
+                
+                <div class="hero-right">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-gold);">Types d'arnaques que nous traitons :</h3>
+                    <div class="scam-types">
+                        <div class="scam-type"><i class="fas fa-phone-alt"></i> Arnaques Téléphoniques & Faux Conseillers</div>
+                        <div class="scam-type"><i class="fas fa-ticket-alt"></i> Fausses Offres Carte Cadeau & Réductions</div>
+                        <div class="scam-type"><i class="fas fa-university"></i> Faux Conseillers Bancaires & Assureurs</div>
+                        <div class="scam-type"><i class="fas fa-bolt"></i> Arnaques Fournisseurs d'Énergie (EDF, Engie)</div>
+                        <div class="scam-type"><i class="fas fa-shopping-bag"></i> Fraudes Marketplace (Leboncoin, Vinted)</div>
+                        <div class="scam-type"><i class="fas fa-euro-sign"></i> Investissements Trompeurs & Crypto</div>
+                    </div>
+                    
+                    <div class="trust-badges">
+                        <div class="badge">
+                            <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                            <span>Évaluation 24h/24</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-icon"><i class="fas fa-balance-scale"></i></span>
+                            <span>Équipe Juridique Certifiée</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-icon"><i class="fas fa-handshake"></i></span>
+                            <span>Garantie "Rien à Payer si Pas de Récupération"</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-text">Taux de Réussite en France</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24h</div>
+                            <div class="stat-text">Délai Moyen d'Intervention</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-text">Conforme au Droit Français</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary cta-button" id="problemCtaBtn">
+                        <i class="fab fa-whatsapp"></i> OBTENIR UNE ÉVALUATION GRATUITE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <h2 class="section-title">Vous n'êtes pas seul. Nous avons déjà aidé <span class="gradient-text">3,000 personnes</span> comme vous</h2>
+            <p class="section-subtitle">L'impact émotionnel et financier d'une fraude en ligne peut être dévastateur. Mais il existe une solution.</p>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <div class="pain-point-icon"><i class="fas fa-heart-broken"></i></div>
+                    <h3>Détresse Émotionnelle</h3>
+                    <p>"La honte et la colère qui vous empêchent de parler à votre famille et vos amis de ce qui s'est passé."</p>
+                </div>
+                <div class="pain-point">
+                    <div class="pain-point-icon"><i class="fas fa-sad-tear"></i></div>
+                    <h3>Perte Financière</h3>
+                    <p>"Voir vos économies, destinées aux études de vos enfants ou à une nouvelle maison, disparaître sur le compte d'un inconnu."</p>
+                </div>
+                <div class="pain-point">
+                    <div class="pain-point-icon"><i class="fas fa-tired"></i></div>
+                    <h3>Sentiment d'Impasse</h3>
+                    <p>"Les boucles sans fin du service client et des plaintes policières qui ne mènent nulle part."</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-style: italic; color: var(--accent-gold);">
+                    <i class="fas fa-quote-left"></i> 
+                    En France, chaque année, des milliers de consommateurs sont victimes d'arnaques. 
+                    Ne restez pas seul face à ces pratiques illégales.
+                    <i class="fas fa-quote-right"></i>
+                </p>
+            </div>
+            
+            <p class="closing-line">L'arnaqueur a parié sur votre silence. Nous parions sur votre courage d'agir.</p>
+            
+            <div class="text-center">
+                <button class="btn btn-whatsapp cta-button" id="servicesCtaBtn">
+                    <i class="fab fa-whatsapp"></i> AGISSEZ MAINTENANT - CONSULTATION GRATUITE
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Nous récupérons les fonds pour <span class="gradient-text">tous types de fraudes en ligne</span></h2>
+            <p class="section-subtitle">Notre équipe d'experts traite divers cas de cyberfraude avec des approches spécialisées adaptées à chaque type d'arnaque</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Arnaques aux Investissements</h3>
+                    <p>Plateformes de trading fictives, systèmes de Ponzi, fraude aux conseils boursiers, arnaques aux investissements en cryptomonnaies.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Fraudes e-Commerce</h3>
+                    <p>Boutiques en ligne fictives, arnaques à la livraison, fraudes aux achats sur les réseaux sociaux.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tasks"></i></div>
+                    <h3>Fraudes par Tâches</h3>
+                    <p>Arnaques aux tâches en ligne, fraudes aux emplois à temps partiel, arnaques au travail à domicile, fraudes aux emplois de saisie.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Arnaques Sentimentales</h3>
+                    <p>Fraudes sur les applications de rencontre, fausses propositions de mariage, manipulation émotionnelle pour obtenir de l'argent.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <button class="btn btn-whatsapp cta-button" id="finalCtaBtn">
+                    <i class="fab fa-whatsapp"></i> MON ARNAQUE EST-ELLE ÉLIGIBLE ? DEMANDEZ À UN EXPERT
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust" id="process">
+        <div class="container">
+            <h2 class="section-title">Notre processus éprouvé pour <span class="highlight">récupérer votre argent</span></h2>
+            
+            <div class="trust-content">
+                <div class="trust-box">
+                    <h3>Comment nous travaillons</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4>Évaluation Gratuite</h4>
+                                <p>Nous analysons les détails de votre cas pour déterminer la meilleure stratégie de récupération.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4>Action Immédiate</h4>
+                                <p>Notre équipe agit rapidement pour tracer et sécuriser vos fonds avant qu'ils ne disparaissent.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4>Pression Juridique</h4>
+                                <p>Nous utilisons tous les recours légaux pour exercer une pression maximale sur les fraudeurs.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div>
+                                <h4>Récupération des Fonds</h4>
+                                <p>Nous travaillons sans relâche jusqu'à obtenir le meilleur résultat possible pour votre cas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trust-box">
+                    <h3><i class="fas fa-landmark"></i> Notre Processus Légal en France</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4>Analyse Conforme DGCCRF</h4>
+                                <p>Évaluation de votre cas selon les normes de la Direction Générale de la Concurrence</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4>Recours Amiable Français</h4>
+                                <p>Médiation et mise en demeure selon le droit français avant toute action judiciaire</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4>Coordination avec Autorités</h4>
+                                <p>Travail avec les services compétents (Police, Gendarmerie) lorsque nécessaire</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trust-box" id="results">
+                    <h3>Réussites Récentes</h3>
+                    <div class="results">
+                        <div class="result-item">
+                            <h4>Pierre, Paris | Arnaque par Tâches</h4>
+                            <p>Perte : 25,000€ | Récupéré : 18,000€ en 45 jours via coordination bancaire et mises en demeure.</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>Sophie, Lyon | Fraude aux Investissements</h4>
+                            <p>Perte : 150,000€ | Comptes gelés avec succès et partie significative récupérée par intervention juridique.</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>Jean, Marseille | Fraude par Virement</h4>
+                            <p>Perte : 8,500€ | Fonds tracés et gelés en 72 heures, récupération complète initiée.</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 15px; font-style: italic; text-align: center;">Les résultats varient selon les cas. Pas une garantie de résultats spécifiques.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <button class="btn btn-primary mega-cta cta-button">
+                    <i class="fab fa-whatsapp"></i> COMMENCEZ LA RÉCUPÉRATION DE VOTRE ARGENT
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Ne laissez pas les escrocs garder votre argent. <span class="gradient-text">Agissez maintenant.</span></h2>
+            <p>Chaque minute compte lorsque vous essayez de récupérer des fonds volés. Notre équipe est disponible 24h/24 pour évaluer votre cas et commencer immédiatement le processus de récupération.</p>
+            <button class="btn btn-whatsapp mega-cta cta-button">
+                <i class="fab fa-whatsapp"></i> PARLER À UN EXPERT MAINTENANT - C'EST GRATUIT
+            </button>
+            <p style="margin-top: 20px; color: var(--text-gray);">
+                <i class="fas fa-lock"></i> Conversation sécurisée • <i class="fas fa-clock"></i> Réponse en moins de 5 minutes • <i class="fas fa-euro-sign"></i> Évaluation gratuite
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Justice Cyber France</h3>
+                    <p>Service français de premier plan pour la récupération après cyberfraude, combinant expertise juridique et cyber-enquête de pointe pour aider les victimes à retrouver leur sécurité financière.</p>
+                    <p><i class="fas fa-envelope"></i> aide@justicecyberfrance.fr</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <a href="#home">Accueil</a>
+                    <a href="#services">Nos Services</a>
+                    <a href="#process">Notre Processus</a>
+                    <a href="#results">Réussites</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Légal</h3>
+                    <a href="privacy.html">Politique de Confidentialité</a>
+                    <a href="userterms.html">Conditions d'Utilisation</a>
+                    <a href="service.html">Accord de Service</a>
+                </div>
+            </div>
+            
+            <div class="french-protection">
+                <h4><i class="fas fa-shield-alt"></i> Protection du Consommateur Français</h4>
+                <p>
+                    Notre service respecte intégralement le <strong>Code de la consommation français</strong> et les directives de la <strong>DGCCRF</strong>. 
+                    Nous agissons dans le cadre légal français pour protéger vos droits de consommateur.
+                </p>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Avertissement :</strong> Justice Cyber France fournit des consultations juridiques et une assistance à la récupération de fonds. Tous les cas sont uniques et les résultats ne peuvent être garantis. Les frais ne sont applicables qu'en cas de récupération réussie selon un accord signé. Nous ne sommes pas un cabinet d'avocats mais travaillons avec des avocats certifiés partout en France. Les résultats passés ne sont pas indicatifs des résultats futurs.</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Justice Cyber France. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listeners to all CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', trackAndRedirect);
+            });
+            
+            // Also add to any element with specific IDs
+            const specificButtons = [
+                'openModalBtn', 'heroCtaBtn', 'visualCtaBtn', 
+                'problemCtaBtn', 'servicesCtaBtn', 'finalCtaBtn'
+            ];
+            
+            specificButtons.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('click', trackAndRedirect);
+                }
+            });
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768 && navMenu) {
+                        navMenu.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && navMenu) {
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && navMenu && navMenu.classList.contains('show') && 
+                !navMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+                navMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
