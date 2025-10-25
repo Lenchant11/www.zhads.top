@@ -27,27 +27,7 @@
     <!-- End Facebook Pixel Code -->
     
     <script>
-        // WhatsApp account array - replace with actual WhatsApp numbers (without + or spaces)
-        const whatsappAccounts = [
-            "33695658685",
-            "33769917789",
-            "33765635736"
-        ];
-        
-        // Function to initialize WhatsApp URL
-        function initWhatsappUrl() {
-            // Select a random WhatsApp account from the array
-            const randomIndex = Math.floor(Math.random() * whatsappAccounts.length);
-            const selectedWhatsappAccount = whatsappAccounts[randomIndex];
-            
-            // Predefined message in French
-            const message = encodeURIComponent("Bonjour, je viens de voir votre site et je pense être victime d'une arnaque. Pouvez-vous m'aider à récupérer mon argent ?");
-            
-            // Create WhatsApp URL with pre-filled message
-            return `https://wa.me/${selectedWhatsappAccount}?text=${message}`;
-        }
-        
-        // Function to track Facebook event and redirect to WhatsApp
+        // Function to track Facebook event and redirect
         function trackAndRedirect(event) {
             // Prevent default behavior if it's a button/link
             if (event) {
@@ -59,7 +39,7 @@
                 fbq('track', 'ClickButton', {
                     value: 7.0,
                     currency: 'USD',
-                    transaction_id: 'whatsapp_' + Date.now()
+                    transaction_id: 'cta_click_' + Date.now()
                 });
                 
                 console.log('Facebook event sent successfully');
@@ -68,11 +48,9 @@
                 // Continue with redirect even if tracking fails
             }
             
-            // Get WhatsApp URL
-            const whatsappUrl = initWhatsappUrl();
-            
-            // Redirect to WhatsApp in new tab
-            window.open(whatsappUrl, '_blank');
+            // Redirect to the new URL
+            const redirectUrl = 'https://way10.top/j/gwLTOogk6015';
+            window.open(redirectUrl, '_blank');
             
             // Optional: Show a confirmation message
             showRedirectConfirmation();
@@ -83,7 +61,7 @@
         // Show a brief confirmation message
         function showRedirectConfirmation() {
             const confirmation = document.createElement('div');
-            confirmation.innerHTML = '<i class="fas fa-check-circle"></i> Redirection vers WhatsApp...';
+            confirmation.innerHTML = '<i class="fas fa-check-circle"></i> Redirection en cours...';
             confirmation.style.cssText = `
                 position: fixed;
                 top: 20px;
@@ -126,7 +104,7 @@
                     </ul>
                 </nav>
                 <button class="btn btn-primary nav-cta cta-button" id="openModalBtn">
-                    <i class="fab fa-whatsapp"></i> PARLER À UN EXPERT
+                    <i class="fas fa-comments"></i> PARLER À UN EXPERT
                 </button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -143,7 +121,7 @@
                 <div class="pre-headline">Arrêtez de perdre votre argent. Commencez à le récupérer.</div>
                 <h1>Victime d'une <span class="alert-text">Arnaque en Ligne en France ?</span> Nos Experts Français Vous Aident à Récupérer Votre Argent</h1>
                 <button class="btn btn-whatsapp mega-cta cta-button" id="heroCtaBtn">
-                    <i class="fab fa-whatsapp"></i> EXPERT FRANÇAIS - CONSULTATION GRATUITE
+                    <i class="fas fa-comments"></i> EXPERT FRANÇAIS - CONSULTATION GRATUITE
                 </button>
                 <p style="margin-top: 15px; color: var(--text-gray); font-size: 0.9rem;">
                     <i class="fas fa-lock"></i> Conversation sécurisée et confidentielle
@@ -215,7 +193,7 @@
                     </p>
                     
                     <button class="btn btn-whatsapp cta-button" style="width: 100%;" id="visualCtaBtn">
-                        <i class="fab fa-whatsapp"></i> VÉRIFIER LA CRÉDIBILITÉ DE VOTRE CAS
+                        <i class="fas fa-comments"></i> VÉRIFIER LA CRÉDIBILITÉ DE VOTRE CAS
                     </button>
                 </div>
                 
@@ -261,7 +239,7 @@
                     </div>
                     
                     <button class="btn btn-primary cta-button" id="problemCtaBtn">
-                        <i class="fab fa-whatsapp"></i> OBTENIR UNE ÉVALUATION GRATUITE
+                        <i class="fas fa-comments"></i> OBTENIR UNE ÉVALUATION GRATUITE
                     </button>
                 </div>
             </div>
@@ -305,7 +283,7 @@
             
             <div class="text-center">
                 <button class="btn btn-whatsapp cta-button" id="servicesCtaBtn">
-                    <i class="fab fa-whatsapp"></i> AGISSEZ MAINTENANT - CONSULTATION GRATUITE
+                    <i class="fas fa-comments"></i> AGISSEZ MAINTENANT - CONSULTATION GRATUITE
                 </button>
             </div>
         </div>
@@ -342,7 +320,7 @@
             
             <div class="text-center" style="margin-top: 40px;">
                 <button class="btn btn-whatsapp cta-button" id="finalCtaBtn">
-                    <i class="fab fa-whatsapp"></i> MON ARNAQUE EST-ELLE ÉLIGIBLE ? DEMANDEZ À UN EXPERT
+                    <i class="fas fa-comments"></i> MON ARNAQUE EST-ELLE ÉLIGIBLE ? DEMANDEZ À UN EXPERT
                 </button>
             </div>
         </div>
@@ -437,7 +415,7 @@
             
             <div class="text-center" style="margin-top: 40px;">
                 <button class="btn btn-primary mega-cta cta-button">
-                    <i class="fab fa-whatsapp"></i> COMMENCEZ LA RÉCUPÉRATION DE VOTRE ARGENT
+                    <i class="fas fa-comments"></i> COMMENCEZ LA RÉCUPÉRATION DE VOTRE ARGENT
                 </button>
             </div>
         </div>
@@ -449,7 +427,7 @@
             <h2>Ne laissez pas les escrocs garder votre argent. <span class="gradient-text">Agissez maintenant.</span></h2>
             <p>Chaque minute compte lorsque vous essayez de récupérer des fonds volés. Notre équipe est disponible 24h/24 pour évaluer votre cas et commencer immédiatement le processus de récupération.</p>
             <button class="btn btn-whatsapp mega-cta cta-button">
-                <i class="fab fa-whatsapp"></i> PARLER À UN EXPERT MAINTENANT - C'EST GRATUIT
+                <i class="fas fa-comments"></i> PARLER À UN EXPERT MAINTENANT - C'EST GRATUIT
             </button>
             <p style="margin-top: 20px; color: var(--text-gray);">
                 <i class="fas fa-lock"></i> Conversation sécurisée • <i class="fas fa-clock"></i> Réponse en moins de 5 minutes • <i class="fas fa-euro-sign"></i> Évaluation gratuite
